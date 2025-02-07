@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'dark-1': '#000000'
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
