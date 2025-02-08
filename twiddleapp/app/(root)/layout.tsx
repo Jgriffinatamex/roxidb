@@ -2,6 +2,11 @@ import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import '@/app/globals.css';
 import { ClerkProvider } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
+import TopBar from "@/components/shared/TopBar";
+import LeftSideBar from "@/components/shared/LeftSideBar";
+import RightSideBar from "@/components/shared/RightSideBar";
+import BottomBar from "@/components/shared/BottomBar";
 
 
 export const metadata: Metadata = {
@@ -13,13 +18,15 @@ const inter = Inter({
     subsets: ["latin"]
 })
 
-export default function RootLayout({ children } :
+export default async function RootLayout({ children } :
     Readonly<{
         children: React.ReactNode
     }>
 ){
-    return (
-        <>
+    const user = await currentUser();
+    if (!user) {
+        return(
+            <>
             <html lang='en'>
                 <ClerkProvider >
                     <body>
@@ -31,6 +38,32 @@ export default function RootLayout({ children } :
                     </body>
                 </ClerkProvider>
                 
+            </html>
+        </>
+        )
+        
+        
+    }
+    return (
+        <>
+            <html lang='en'>
+                <ClerkProvider >
+                    <body>
+                        <main className={`${inter.className}`}>
+                            <TopBar />
+                                <main className="flex flex-row">
+                                    <LeftSideBar />
+                                        <section className="main-container">
+                                            <div className="w-full flex justify-center items-center min-h-screen">
+                                                { children }
+                                            </div>
+                                        </section>
+                                    <RightSideBar />
+                                </main>
+                            <BottomBar />
+                        </main>
+                    </body>
+                </ClerkProvider>
             </html>
         </>
     )
