@@ -58,8 +58,8 @@ export const updateUser = async ({
     username,
     name,
     bio,
-    image,
-    path
+    path,
+    image
 }: updateUserParams): Promise<void> => {
     try {
         connectToDb()
@@ -70,8 +70,8 @@ export const updateUser = async ({
                 email,
                 username,
                 bio,
-                image,
                 path,
+                image,
                 onboarded: true
             }
     )
