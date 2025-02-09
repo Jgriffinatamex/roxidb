@@ -22,7 +22,10 @@ export const createUser = async ({
         connectToDb()
         await User.create({
             id: userId,
-            username: username?.toLowerCase()
+            username: username?.toLowerCase(),
+            name,
+            email,
+            image
         })
     } catch (err: any) {
         throw new Error(`Error creating user: ${err.message}`)
