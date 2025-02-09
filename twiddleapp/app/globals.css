@@ -26,7 +26,7 @@
         max-md:hidden
     }
     .leftsidebar_link {
-        @apply relative flex justify-start gap-4 rounded-lg p-4;
+        @apply relative flex justify-start gap-4 rounded-full p-4;
     }
   
       .bottombar {
@@ -38,7 +38,7 @@
       }
     
       .bottombar_link {
-        @apply relative flex flex-col items-center gap-2 rounded-lg p-2 sm:flex-1 sm:px-2 sm:py-2.5;
+        @apply relative flex flex-col items-center gap-2 rounded-full p-2 sm:flex-1 sm:px-2 sm:py-2.5;
       }
   
       .topbar {

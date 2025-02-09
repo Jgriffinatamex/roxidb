@@ -1,12 +1,14 @@
+
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import '@/app/globals.css';
 import { ClerkProvider } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
+
 import TopBar from "@/components/shared/TopBar";
 import LeftSideBar from "@/components/shared/LeftSideBar";
 import RightSideBar from "@/components/shared/RightSideBar";
 import BottomBar from "@/components/shared/BottomBar";
+import { currentUser } from "@clerk/nextjs/server";
 
 
 export const metadata: Metadata = {
@@ -23,7 +25,7 @@ export default async function RootLayout({ children } :
         children: React.ReactNode
     }>
 ){
-    const user = await currentUser();
+    const user = await currentUser()
     if (!user) {
         return(
             <>
