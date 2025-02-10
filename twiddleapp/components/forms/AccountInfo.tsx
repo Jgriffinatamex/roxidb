@@ -38,11 +38,11 @@ const AccountInfo = ({ user }: Props) => {
     })
 
 
-    const form = useForm<z.infer<typeof UserValidation>>({
+    const form = useForm< z.infer< typeof UserValidation > >({
         resolver: zodResolver(UserValidation),
         defaultValues: {
             bio: user?.bio ? user?.bio : ''
-        },
+        }
     })
     const onSubmit = async (values: z.infer<typeof UserValidation> ) => {
         await updateUser({
@@ -50,13 +50,15 @@ const AccountInfo = ({ user }: Props) => {
             bio: values.bio,
             path: pathname
         })
-        if (pathname === '/profile/edit') {
+
+        if(pathname === '/profile/edit'){
             router.back()
+
         }else{
             router.push('/')
         }
-     
     }
+  
     if (!showBio) {
         return(
             <h1 className="text-heading1-bold text-light-1">Loading...</h1>
@@ -70,7 +72,7 @@ const AccountInfo = ({ user }: Props) => {
                     <FormField 
                         control={form.control}
                         name='bio'
-                        render={ ( field ) => (
+                        render={ ( {field} ) => (
                             <FormItem className="flex w-full flex-col gap-3">
                                 <FormLabel className="text-base-semibold text-light-2"> 
                                     Speak on you self
@@ -78,8 +80,9 @@ const AccountInfo = ({ user }: Props) => {
                                 <FormControl>
                                     <Textarea 
                                         rows={10}
-                                        className="account-form_input no-focus"
-                                        {...field}/>
+                                        className="account-form_input bg-white"
+                                        {...field}
+                                        />
                                 </FormControl>
                                 <FormMessage/>
                             </FormItem>

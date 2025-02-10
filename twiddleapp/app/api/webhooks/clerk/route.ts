@@ -5,7 +5,7 @@
     import { createUser, updateUser } from '@/lib/actions/user.actions'
     //import { addMemberToGroup, createGroup, deleteGroup, removeUserFromGroup, updateGroupInfo } from '@/lib/actions/group.actions'
     
-        export async function POST(req: Request) {
+    export async function POST(req: Request) {
         // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
         const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
     
@@ -106,4 +106,4 @@
         // }
     
         return new Response('', { status: 200 })
-        }
+    }

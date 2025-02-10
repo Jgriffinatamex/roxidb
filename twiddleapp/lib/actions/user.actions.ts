@@ -49,8 +49,8 @@ interface updateUserParams{
     username?: string;
     name?: string;
     bio?: string;
-    image?: string;
     path?: string;
+    image?: string
 }
 export const updateUser = async ({
     userId,
