@@ -80,7 +80,7 @@ const AccountInfo = ({ user }: Props) => {
                                 <FormControl>
                                     <Textarea 
                                         rows={10}
-                                        className="account-form_input bg-white"
+                                        className="account-form_input no-focus"
                                         {...field}
                                         />
                                 </FormControl>

@@ -17,7 +17,7 @@ export const sidebarLinks = [
     {
       imgURL: "/assets/tweet.svg",
       route: "/create-tweet",
-      label: "Tweet",
+      label: "Post",
     },
     {
       imgURL: "/assets/groups.svg",
