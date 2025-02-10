@@ -107,7 +107,7 @@ export const fetchUsers = async ({
                 { name: { $regex: regex } }
             ]
         }
-        const sortOptions = {createdAt: sortBy}
+        const sortOptions = { createdAt: sortBy }
 
         const userQuery = User.find(query)
            .sort(sortOptions)

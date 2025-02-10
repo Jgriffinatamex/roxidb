@@ -1,15 +1,22 @@
 import { fetchUsers } from "@/lib/actions/user.actions";
-import { currentUser } from "@clerk/nextjs/server"
+
 import UserCard from "../cards/UserCard";
+import { currentUser } from "@clerk/nextjs/server";
+
 
 
 const RightSideBar = async () => {
-  const user = currentUser();
+  const user = await currentUser();
   if (!user) return null
+
+  // const similarMinds = await fetchUsers({
+  //   userId: user.id,
+  //   pageSize: 4
+  // })
 
   const similarMinds = await fetchUsers({
     userId: user.id,
-    pageSize: 4
+    pageSize: 10
   })
 
   return (
