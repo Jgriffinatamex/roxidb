@@ -1,7 +1,8 @@
 import { fetchUsers } from "@/lib/actions/user.actions";
-
-import UserCard from "../cards/UserCard";
 import { currentUser } from "@clerk/nextjs/server";
+import UserCard from "../cards/UserCard";
+
+
 
 
 
@@ -40,16 +41,15 @@ const RightSideBar = async () => {
             {
               similarMinds.users.length > 0 ? (
                 <>
-                { similarMinds.users.map((person) => {
-                  <UserCard 
-                    key = { person.id }
-                    id = { person.id }
-                    name = { person.name }
-                    username = { person.username }
-                    imgUrl = { person.image }
-                    personType = 'User'
-                  />
-                })}
+                { similarMinds.users.map( ( person ) => 
+                    <UserCard
+                      key={ person.id }
+                      id={ person.id }
+                      name={ person.name }
+                      username={ person.username }
+                      imgUrl={ person.image }
+                    />
+                )}
                 </>
               ):(
                 <>
