@@ -14,7 +14,7 @@ export default async function Home() {
   }
   return(
     <>
-    <div>Hello</div>
+    <div className="head-text">Hello</div>
     </>
   )
 }

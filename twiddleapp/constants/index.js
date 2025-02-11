@@ -5,9 +5,9 @@ export const sidebarLinks = [
       label: "Home",
     },
     {
-      imgURL: "/assets/search.svg",
-      route: "/search",
-      label: "Search",
+      imgURL: "/assets/profile.svg",
+      route: "/profile",
+      label: "Profile",
     },
     {
       imgURL: "/assets/notifications.svg",
@@ -16,7 +16,7 @@ export const sidebarLinks = [
     },
     {
       imgURL: "/assets/tweet.svg",
-      route: "/create-tweet",
+      route: "/create-post",
       label: "Post",
     },
     {
@@ -25,9 +25,9 @@ export const sidebarLinks = [
       label: "Groups",
     },
     {
-      imgURL: "/assets/profile.svg",
-      route: "/profile",
-      label: "Profile",
+      imgURL: "/assets/search.svg",
+      route: "/search",
+      label: "Search",
     },
   ];
 
