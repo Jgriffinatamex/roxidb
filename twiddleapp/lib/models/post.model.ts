@@ -1,6 +1,6 @@
 'use server'
 
-import { group } from "console"
+
 import mongoose from "mongoose"
 
 const postSchema = new mongoose.Schema({

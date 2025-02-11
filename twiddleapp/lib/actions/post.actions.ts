@@ -1,3 +1,4 @@
+'use server'
 import { revalidatePath } from "next/cache";
 import Post from "../models/post.model";
 import User from "../models/user.model";
@@ -25,7 +26,7 @@ export const createPost = async ({
             repostOf
         })
         await User.findByIdAndUpdate(author,{
-            $push: { posts: createdPost._id},
+          $push: { posts: createdPost._id}
         });
         if (repostOf) {
             await User.findByIdAndUpdate(author,{

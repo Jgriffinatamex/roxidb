@@ -21,7 +21,7 @@ import { createPost } from "@/lib/actions/post.actions";
 interface Props {
     userId: string
 }
-const ShowPost = ( { userId}: Props ) => {
+const ShowPost = ( { userId }: Props ) => {
   const pathname = usePathname()
   const router = useRouter()
 
@@ -36,8 +36,8 @@ const ShowPost = ( { userId}: Props ) => {
     await createPost({
       text: values.post,
       author: userId,
-      path: pathname
-
+      path: pathname,
+      repostOf: ""
     })
     router.push('/')
   }
