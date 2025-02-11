@@ -10,11 +10,6 @@ const RightSideBar = async () => {
   const user = await currentUser();
   if (!user) return null
 
-  // const similarMinds = await fetchUsers({
-  //   userId: user.id,
-  //   pageSize: 4
-  // })
-
   const similarMinds = await fetchUsers({
     userId: user.id,
     pageSize: 10
@@ -54,7 +49,7 @@ const RightSideBar = async () => {
               ):(
                 <>
                 <p className="!text-base-regular text-light-3">
-                  No users found yet
+                  No users found yet.
                 </p>
                 </>
               )
