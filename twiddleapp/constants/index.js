@@ -6,7 +6,7 @@ export const sidebarLinks = [
     },
     {
       imgURL: "/assets/profile.svg",
-      route: "/profile",
+      route: '/profile',
       label: "Profile",
     },
     {
@@ -24,11 +24,11 @@ export const sidebarLinks = [
       route: "/groups",
       label: "Groups",
     },
-    {
-      imgURL: "/assets/search.svg",
-      route: "/search",
-      label: "Search",
-    },
+    // {
+    //   imgURL: "/assets/search.svg",
+    //   route: "/search",
+    //   label: "Search",
+    // },
   ];
 
   export const profileTabs = [
