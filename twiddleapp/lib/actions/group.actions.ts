@@ -38,7 +38,41 @@ export const createGroup = async (
             user.groups.push(createdGroup._id)
             await user.save()
         } catch (error) {
-            console.log(error)
+            console.error('failed to create group',error)
             throw error;
+        }
+    }
+
+    export const addMemberToGroup = async (
+        groupId: string,
+        memberId: string
+    ) => {
+        try {
+            connectToDb();
+            //find the group by its id
+            const group = await Group.findOne({ id: groupId });
+            if (!group) {
+                throw new Error('Group not found');
+            }
+            //find the user by its id
+            const user = await User.findOne({ id: memberId });
+            if (!user) {
+                throw new Error('User not found');
+            }
+
+            if (group.members.includes(user._id)) {
+                throw new Error('Already in group');
+            }
+            //add user to the group members array
+            group.members.push(user._id);
+            await group.save();
+            //add group to the user's groups array
+            user.groups.push(group._id);
+            await user.save();
+
+            return group;
+        } catch (error) {
+            console.error('failed to add member',error)
+            throw error; 
         }
     }
