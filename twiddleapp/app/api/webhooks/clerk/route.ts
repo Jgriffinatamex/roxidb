@@ -100,11 +100,11 @@ import { addMemberToGroup, createGroup, removeUserFromGroup, updateGroupInfo } f
             await updateGroupInfo( id, name, slug, ( image_url || '' ) )
         }
     
-        // if( evt.type === 'organization.deleted' ) {
-        //     const { id } = evt.data
-        //     // @ts-ignore
-        //     await deleteGroup(id)
-        // }
+        if( evt.type === 'organization.deleted' ) {
+            const { id } = evt.data
+            // @ts-ignore
+            await deleteGroup(id)
+        }
     
         return new Response('', { status: 200 })
     }
