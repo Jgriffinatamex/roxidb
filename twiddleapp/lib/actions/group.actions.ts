@@ -105,9 +105,30 @@ export const createGroup = async (
                 { $pull:{ member: groupIdObject._id } }
             );
             return { success: true };
-            
+
         } catch (error) {
             console.error('failed to remove user from group',error)
             throw error; 
         }
     }
+    export const updateGroupInfo = async (
+        groupId: string,
+        name: string,
+        username: string,
+        image: string
+    ) => {
+        try {
+            connectToDb();
+            const updatedGroup = await Group.findOneAndUpdate(
+                { id: groupId },
+                { name, username, image }
+            );
+            if (!updatedGroup) {
+                throw new Error('Group not found')
+            }
+            return updatedGroup;
+        } catch (error) {
+            console.error('failed to update group',error)
+            throw error;   
+        }
+    };

@@ -3,7 +3,7 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers' 
 import { WebhookEvent } from '@clerk/nextjs/server'
 import { createUser, updateUser } from '@/lib/actions/user.actions'
-import { addMemberToGroup, createGroup, removeUserFromGroup } from '@/lib/actions/group.actions'
+import { addMemberToGroup, createGroup, removeUserFromGroup, updateGroupInfo } from '@/lib/actions/group.actions'
     //import { addMemberToGroup, createGroup, deleteGroup, removeUserFromGroup, updateGroupInfo } from '@/lib/actions/group.actions'
     
     export async function POST(req: Request) {
@@ -95,10 +95,10 @@ import { addMemberToGroup, createGroup, removeUserFromGroup } from '@/lib/action
             await removeUserFromGroup( public_user_data.user_id, organization.id )
         }
     
-        // if( evt.type === 'organization.updated' ) {
-        //     const { id, image_url, name, slug } = evt.data
-        //     await updateGroupInfo( id, name, slug, ( image_url || '' ) )
-        // }
+        if( evt.type === 'organization.updated' ) {
+            const { id, image_url, name, slug } = evt.data
+            await updateGroupInfo( id, name, slug, ( image_url || '' ) )
+        }
     
         // if( evt.type === 'organization.deleted' ) {
         //     const { id } = evt.data
