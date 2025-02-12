@@ -15,6 +15,9 @@ import { Textarea} from "../ui/textarea";
 import { PostValidation } from "@/lib/validations/post";
 import { usePathname, useRouter } from "next/navigation";
 import { createPost } from "@/lib/actions/post.actions";
+import { useOrganization } from "@clerk/nextjs";
+
+
 
 
 
@@ -24,6 +27,7 @@ interface Props {
 const ShowPost = ( { userId }: Props ) => {
   const pathname = usePathname()
   const router = useRouter()
+  const { organization } = useOrganization()
 
   const form = useForm<z.infer< typeof PostValidation> >({
     resolver: zodResolver(PostValidation),
@@ -37,7 +41,8 @@ const ShowPost = ( { userId }: Props ) => {
       text: values.post,
       author: userId,
       path: pathname,
-      repostOf: ""
+      repostOf: "",
+      groupId: organization ? organization.id : null
     })
     router.push('/')
   }
