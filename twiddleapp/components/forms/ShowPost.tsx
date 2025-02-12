@@ -29,19 +29,19 @@ const ShowPost = ( { userId }: Props ) => {
   const router = useRouter()
   const { organization } = useOrganization()
 
-  const form = useForm<z.infer< typeof PostValidation> >({
+  const form = useForm< z.infer< typeof PostValidation> >({
     resolver: zodResolver(PostValidation),
     defaultValues:{
       post: '',
       accountId: userId
     }
   })
+
   const onSubmit = async (values: z.infer< typeof PostValidation> ) => {
     await createPost({
       text: values.post,
       author: userId,
       path: pathname,
-      repostOf: "",
       groupId: organization ? organization.id : null
     })
     router.push('/')
