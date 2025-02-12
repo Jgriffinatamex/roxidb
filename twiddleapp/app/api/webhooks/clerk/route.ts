@@ -74,14 +74,14 @@ import { createGroup } from '@/lib/actions/group.actions'
             })
         }
     
-        if( evt.type === 'organization.created' ) {
-            const { id, name, slug, image_url, created_by } = evt.data
-            await createGroup ({
+        if (evt.type === 'organization.created') {
+            const { id, name, slug, image_url, created_by} = evt.data
+            await createGroup({
                 id,
                 name,
                 username: slug,
                 image: image_url || '',
-                createdById: created_by        
+                createdById: created_by || '',
             })
         }
     
