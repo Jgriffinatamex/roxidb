@@ -34,10 +34,10 @@ export const createGroup = async (
                 image,
                 createdById: user._id,
             });
-            const createdGroup = await newGroup.save();
+            await newGroup.save();
             //update user model
-            user.groups.push(createdGroup._id)
-            await user.save()
+            //user.groups.push(createdGroup._id)
+            //await user.save()
         } catch (error) {
             console.error('failed to create group',error)
             throw error;

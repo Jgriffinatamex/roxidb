@@ -29,8 +29,8 @@ export const createPost = async ({
             text,
             author,
             path,
-            group: groupIdObject,
-            repostOf
+            repostOf,
+            group: groupIdObject
         })
         await User.findByIdAndUpdate(author,{
           $push: { posts: createdPost._id}
