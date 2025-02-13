@@ -35,6 +35,7 @@ const BottomBar = () => {
                  width={24}
                  height={24}
                  />
+                 {/* Do I need this part here */}
                  <p className='text-light-1 text-subtle-medium'>
                   {link.label}  
                 </p> 
