@@ -1,6 +1,9 @@
 import { fetchUsers } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server";
 import UserCard from "../cards/UserCard";
+import { fetchGroups } from "@/lib/actions/group.actions";
+import { group } from "console";
+import GroupCard from "../cards/GroupCard";
 
 
 
@@ -12,8 +15,9 @@ const RightSideBar = async () => {
 
   const similarMinds = await fetchUsers({
     userId: user.id,
-    pageSize: 10
+    pageSize: 4
   })
+  const suggestedGroups = await fetchGroups( { pageSize: 4} )
 
   return (
     <>
@@ -27,6 +31,29 @@ const RightSideBar = async () => {
           <h3 className="text-heading4-medium text-light-1">
             Groups
           </h3>
+          <div className="mt-7 flex w-[350px] flex-col gap-10">
+            { suggestedGroups.groups.length > 0 ? (
+                <>
+                  { suggestedGroups.groups.map(( group ) => 
+                    <GroupCard
+                      key={ group.id }
+                      id={ group.id }
+                      name={ group.name }
+                      username = { group.username }
+                      imgUrl={ group.image }
+                      members={ group.members }  
+                    />
+                  )}
+                </>
+              ):(
+                <>
+                  <p className="text-base-regular text-light-3">
+                    No Groups Yet
+                  </p>
+                </>
+              )
+            }
+          </div>
       </div>
       <div className="flex flex-col justify-start">
           <h3 className="text-heading4-medium text-light-1">
