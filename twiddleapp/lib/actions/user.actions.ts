@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import User from "../models/user.model"
 import { connectToDb } from "../mongoose"
 import { FilterQuery, SortOrder } from "mongoose";
+import Post from "../models/post.model";
 
 interface CreateUserParams {
     userId: String;
@@ -120,5 +121,46 @@ export const fetchUsers = async ({
         return { users, isNext }
     } catch (err: any) {
         throw new Error(`Error failed fetching users: ${err.message}`)
+    }
+}
+
+export async function likeOrDislikePost(userId: string, postId: string, path: string) {
+    try {
+        connectToDb();
+        // Find the user and check if they have already liked the post
+        const user = await User.findOne({ id: userId });
+        if (!user) throw new Error('User not found');
+
+        let post;
+
+        if (user.likedPosts.includes(postId)) {
+            // If the post is already liked, decrement its likes and remove it from the user's likedPosts
+            post = await Post.findByIdAndUpdate(
+                postId,
+                { $inc: { likes: -1 } },
+                { new: true} // Return the updated document
+            );
+            if (!post) {
+                throw new Error('Post not found');
+            }
+            // Remove the post from the user's likedPosts array
+            user.likedPosts = user.likedPosts.filter((id: any) => id.toString() !== postId);
+        } else {
+            // If the post is not liked, increment its likes and add it to the user's likedPosts
+            post = await Post.findByIdAndUpdate(
+                postId,
+                { $inc: { likes: 1 } },
+                { new: true} // Return the updated document
+            );
+            if (!post) {
+                throw new Error('Post not found');
+            }
+            // Add the tweet to the user's likedPosts array
+            user.likedPosts.$push(postId);
+        }
+        await user.save();
+        revalidatePath(path)
+    } catch (error: any) {
+        throw new Error(`Like or Dislike failed ${error.message}`);
     }
 }

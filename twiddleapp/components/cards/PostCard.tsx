@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatDateString } from '@/lib/utils'; 
 import { auth } from "@clerk/nextjs/server";
+import PostLikeButton from "../shared/PostlikeButton";
+import SharePostButton from "../shared/SharePostButton";
+import RepostButton from "../shared/RepostButton";
+import DeletePostButton from "../shared/DeletePostButton";
 
 interface Props {
   id: string;
@@ -94,7 +98,7 @@ const PostCard = ({
                   <div className="flex gap-3">
                     <PostLikeButton
                       postId={id}
-                      currentUser={currentUserId}
+                      currentUserId={currentUserId}
                       likes={likes}
                       liked={liked}
                     />
