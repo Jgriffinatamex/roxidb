@@ -4,6 +4,7 @@ import Post from "../models/post.model";
 import User from "../models/user.model";
 import { connectToDb } from "../mongoose";
 import Group from "../models/group.model";
+import { group } from "console";
 
 interface PostParams{
     text: string;
@@ -52,3 +53,47 @@ export const createPost = async ({
         throw new Error(`Failed to create Post ${err.message}`)
     }
 }
+export const fetchPosts = async (pageNumber = 1, pageSize = 20) => {
+    connectToDb();
+
+    const skipAmount = (pageNumber - 1) * pageSize;
+
+    const PostsQuery = Post.find({ parentId: { $in: [null, undefined] } })
+        .sort({ createdAt: 'desc'})
+        .skip(skipAmount)
+        .limit(pageSize)
+        .populate({
+            path: 'author',
+            model: User,
+        })
+        .populate({
+            path: 'group',
+            model: Group,
+        })
+        .populate({
+            path: 'children',
+            populate: {
+                path: 'author',
+                model: User,
+                select: '_id name parentId image',
+            },
+        })
+        .populate({
+            path: 'repostOf',
+            populate: {
+                path: 'author',
+                model: User,
+                select: '_id name image',
+            },
+        });
+
+    const totalPostsCount = await Post.countDocuments({
+        parentId: { $in: [null, undefined] },
+    });
+
+    const posts = await PostsQuery.exec();
+
+    const isNext = totalPostsCount > skipAmount + posts.length;
+
+    return { posts, isNext }
+};
