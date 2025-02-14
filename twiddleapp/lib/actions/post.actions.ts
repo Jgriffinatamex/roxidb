@@ -4,7 +4,6 @@ import Post from "../models/post.model";
 import User from "../models/user.model";
 import { connectToDb } from "../mongoose";
 import Group from "../models/group.model";
-import { group } from "console";
 
 interface PostParams{
     text: string;
@@ -97,3 +96,43 @@ export const fetchPosts = async (pageNumber = 1, pageSize = 20) => {
 
     return { posts, isNext }
 };
+
+interface RepostParams {
+    userId: string;
+    postId: string;
+    path: string;
+    groupId: string | null;
+}
+export const repostPost = async ({
+    userId,
+    postId,
+    path,
+    groupId,
+}: RepostParams) => {
+    try {
+        connectToDb();
+        const user = await User.findById(userId);
+        if (!user) throw new Error('No such user');
+
+        const originalPost = await Post.findById(postId);
+        if (!originalPost) throw new Error('No such post');
+
+        if (user.reposts.includes(postId)) {
+            throw new Error('Already reposted ')
+        }
+        await createPost({
+            text: originalPost.text,
+            repostOf: postId,
+            author: userId,
+            path,
+            groupId
+        })
+
+        user.reposts.push(postId)
+        await user.save();
+
+        revalidatePath(path)
+    } catch ( error: any ) {
+        throw new Error(`Repost failed ${error.message}`)
+    }
+}
