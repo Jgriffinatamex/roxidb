@@ -8,11 +8,13 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { page: string }
-}) {
+export default async function Home(
+//   {
+//   searchParams,
+// }: {
+//   searchParams: { [key: string]: string | undefined };
+// }
+) {
   
     const user = await currentUser()
       if (!user) {
@@ -25,12 +27,12 @@ export default async function Home({
     const userInfo = await fetchUser(user.id);
     if (!userInfo?.onboarded) redirect('/onboarding');
 
-    const result = await fetchPosts( searchParams.page ? +searchParams.page : 1 , 9 );
-    // const result = await fetchPosts(
-    //    1, 3 );
+    //const result = await fetchPosts( searchParams.page ? +searchParams.page : 1 , 30 );
+     const result = await fetchPosts(
+        1, 30 );
     return(
       <>
-      <section className="mt-10 flex flex-col gap-10">
+      <section className="mt-1 flex flex-col gap-5">
       { result.posts.length === 0 ? (
         <p className="text-light-1">No posts found</p>
       ):(
@@ -38,7 +40,7 @@ export default async function Home({
           {result.posts.map(async (post) => {
             const isOwner = await isPostByUser( userInfo?._id, post?._id)
             return (
-              <div className="mt-10">
+              <div className="mt-5">
                 <PostCard
                   key={post._id}
                   id={post._id}
@@ -53,17 +55,17 @@ export default async function Home({
                   createdAt={post.createdAt}
                   comments={post.children}
                   likes={post.likes}
-                  liked={ userInfo.likedPosts.includes(post._id)}      
+                  liked={userInfo.likedPosts.includes(post._id)}      
                 />
               </div>
             )
             }
           )}
-          <Pagination
+          {/* <Pagination
             path='/'
             pageNUmber={ searchParams?.page ? +searchParams.page : 1}
             isNext={result.isNext}
-          />
+          /> */}
         </div>
       )}
       </section>

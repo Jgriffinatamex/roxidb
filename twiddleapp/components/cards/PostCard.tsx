@@ -103,7 +103,7 @@ const PostCard = ({
                     />
                     <Link href={`/post/${id}`}>
                       <Image
-                        src='/assets/reply.svg' alt="reply" width={42} height={24} className="cursor-pointer object-contain"
+                        src='/assets/reply.svg' alt="reply" width={24} height={24} className="cursor-pointer object-contain"
                       />
                     </Link>
                     <RepostButton
@@ -167,7 +167,7 @@ const PostCard = ({
           <Link
             href={`/groups/${group.id}`} className="mt-5 flex items-center"
           >
-            <p>
+            <p className="text-subtle-medium text-gray-1">
               {formatDateString(createdAt)}
               {group && ` - ${group.name} Group`}
             </p>

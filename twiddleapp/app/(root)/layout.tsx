@@ -20,6 +20,10 @@ const inter = Inter({
     subsets: ["latin"]
 })
 
+// export default async function Layout(props: { children: ReactNode: params: Promise<{ id: string }>}){
+//     const { children, params } = props;
+//     const { id } = await params;
+
 export default async function RootLayout({ children } :
     Readonly<{
         children: React.ReactNode

@@ -4,7 +4,6 @@ import Post from "../models/post.model";
 import User from "../models/user.model";
 import { connectToDb } from "../mongoose";
 import Group from "../models/group.model";
-import { Chilanka } from "next/font/google";
 
 interface PostParams{
     text: string;
