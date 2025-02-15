@@ -11,7 +11,7 @@ import { redirect } from "next/navigation";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | undefined }; 
+  searchParams: { page: string }
 }) {
   
     const user = await currentUser()
@@ -25,9 +25,9 @@ export default async function Home({
     const userInfo = await fetchUser(user.id);
     if (!userInfo?.onboarded) redirect('/onboarding');
 
-    //const result = await fetchPosts( searchParams.page ? +searchParams.page : 1 , 3 );
-    const result = await fetchPosts(
-       1, 3 );
+    const result = await fetchPosts( searchParams.page ? +searchParams.page : 1 , 9 );
+    // const result = await fetchPosts(
+    //    1, 3 );
     return(
       <>
       <section className="mt-10 flex flex-col gap-10">
