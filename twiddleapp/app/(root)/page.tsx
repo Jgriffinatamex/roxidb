@@ -27,7 +27,7 @@ export default async function Home({
 
     //const result = await fetchPosts( searchParams.page ? +searchParams.page : 1 , 3 );
     const result = await fetchPosts(
-      searchParams?.page ? +searchParams.page : 1, 3 );
+       1, 3 );
     return(
       <>
       <section className="mt-10 flex flex-col gap-10">
