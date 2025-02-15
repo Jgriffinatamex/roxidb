@@ -40,7 +40,7 @@ export default async function Home(
           {result.posts.map(async (post) => {
             const isOwner = await isPostByUser( userInfo?._id, post?._id)
             return (
-              <div className="mt-5">
+              <div className="mt-1">
                 <PostCard
                   key={post._id}
                   id={post._id}
