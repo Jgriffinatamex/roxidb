@@ -4,6 +4,7 @@ import Post from "../models/post.model";
 import User from "../models/user.model";
 import { connectToDb } from "../mongoose";
 import Group from "../models/group.model";
+import { Chilanka } from "next/font/google";
 
 interface PostParams{
     text: string;
@@ -134,5 +135,94 @@ export const repostPost = async ({
         revalidatePath(path)
     } catch ( error: any ) {
         throw new Error(`Repost failed ${error.message}`)
+    }
+}
+
+export const isPostByUser = async (userId: string, postId: string) => {
+    try {
+        connectToDb();
+        const post = await Post.findById(postId);
+        if (!post) throw new Error('Post not found');
+
+        return post?.author.toString() === userId?.toString();
+    } catch (error: any) {
+        throw new Error(`not your post ${error.message}`);
+    }
+}
+
+export const deletePost = async (userId: string, postId: string, path: string) => {
+    try {
+        connectToDb();
+        
+        // Check if the tweet exists and if the user is the author
+        const post = await Post.findById(postId);
+        if (!post) throw new Error('Post not found');
+
+        // Check if the tweet belongs to the user
+        const isAuthor = await isPostByUser(userId, postId);
+        if (!isAuthor) throw new Error('Post not found')
+
+        // Remove tweet reference from the user's tweets array
+        await User.findByIdAndUpdate(userId, {
+            $pull: { posts: postId }
+        });
+
+        // If the tweet is a retweet, remove it from the user's retweets array
+        if (post.repostOf) {
+            await User.findByIdAndUpdate(userId, {
+                $pull: { reposts: post.repostOf}
+            });
+        }
+
+        if (post.parentId) {
+            await User.findByIdAndUpdate(userId, {
+                $pull: { replies: postId} 
+            });
+
+            await Post.findByIdAndUpdate(post.parentId, {
+                $pull: { children: postId }
+            })
+        }
+
+        // Remove tweet reference from any group collections it might belong to
+        await Group.updateMany(
+            {posts: postId},
+            { $pull: { posts: postId } }
+        );
+
+        // Find and delete all retweets of the tweet
+        const reposts = await Post.find({ repostOf: postId});
+
+        for(const repost of reposts) {
+            // Remove retweet reference from the user's tweets array
+            await User.findByIdAndUpdate(repost.author, {
+                $pull: { reposts: repost._id }
+            });
+
+            // Remove retweet reference from the user's retweets array
+            await User.findByIdAndUpdate(repost.author,{
+                $pull: { reposts: repost._id }
+            });
+
+            // Remove retweet reference from any group collections it might belong to
+            await Group.updateMany(
+                { posts: repost._id },
+                { $pull: { posts: repost._id } }
+            );
+            // Delete the repost
+            await Post.findByIdAndDelete(repost._id)
+        }
+        // Remove the tweet from all users' retweets arrays
+            await User.updateMany(
+                { reposts: postId},
+                { $pull: { reposts: postId } }
+            );
+
+        // Delete the original tweet
+            await Post.findByIdAndDelete(postId);
+
+            revalidatePath(path);
+    } catch (error: any) {
+        throw new Error(`Delete failed ${error.message}`);
     }
 }
