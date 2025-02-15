@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatDateString } from '@/lib/utils'; 
-import { auth } from "@clerk/nextjs/server";
 import PostLikeButton from "../shared/PostlikeButton";
 import SharePostButton from "../shared/SharePostButton";
 import RepostButton from "../shared/RepostButton";
