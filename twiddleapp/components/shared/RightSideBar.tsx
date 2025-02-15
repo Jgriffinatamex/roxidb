@@ -55,11 +55,11 @@ const RightSideBar = async () => {
             }
           </div>
       </div>
-      <div className="flex flex-col justify-start">
+      <div className="flex flex-col flex-1 justify-start">
           <h3 className="text-heading4-medium text-light-1">
             Users
           </h3>
-          <div className="mt-7 flex w-[350]">
+          <div className="mt-7 flex w-[350] flex-col gap-10">
             {
               similarMinds.users.length > 0 ? (
                 <>
