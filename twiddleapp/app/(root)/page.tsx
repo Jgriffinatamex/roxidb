@@ -1,6 +1,6 @@
 import PostCard from "@/components/cards/PostCard";
 import LandingPage from "@/components/shared/LandingPage";
-import Pagination from "@/components/shared/Pagination";
+//import Pagination from "@/components/shared/Pagination";
 import { fetchPosts, isPostByUser } from "@/lib/actions/post.actions";
 
 import { fetchUser } from "@/lib/actions/user.actions";

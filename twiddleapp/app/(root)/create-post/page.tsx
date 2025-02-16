@@ -13,7 +13,7 @@ const Page = async () => {
   if(!userInfo?.onboarded) redirect('/onboarding')
     return (
   <>
-  <h1 className="head-text">Write something</h1>
+  <h1 className="head-text"></h1>
   {/* this code is throwing an error*/}
   <ShowPost userId={ userInfo._id } />
   {/* Only plain objects can be passed to Client Components from Server Components <... userId={{buffer: ...}}>*/}

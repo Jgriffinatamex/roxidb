@@ -32,8 +32,8 @@ const BottomBar = () => {
                  <Image 
                  src={link.imgURL}
                  alt={link.label}
-                 width={24}
-                 height={24}
+                 width={18}
+                 height={12}
                  />
                  {/* Do I need this part here */}
                  <p className='text-light-1 text-subtle-medium'>

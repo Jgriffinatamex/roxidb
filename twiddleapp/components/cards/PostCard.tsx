@@ -163,7 +163,8 @@ const PostCard = ({
             </div>
           </div>
         </div>
-        {!isComment && group && (
+        <p className="text-subtle-medium text-gray-1">{formatDateString(createdAt)}</p>
+        {/* {!isComment && group && (
           <Link
             href={`/groups/${group.id}`} className="mt-5 flex items-center"
           >
@@ -179,7 +180,7 @@ const PostCard = ({
             className="ml-1 rounded-full object-cover"
             />
           </Link>
-        )}
+        )} */}
       </article>
     </>
   )}

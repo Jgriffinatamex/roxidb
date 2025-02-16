@@ -11,6 +11,9 @@ const TopBar = () => {
         <Link href='/' className="flex items-center gap-4">
           <Image src='/assets/logo.svg' alt="logo" width={75} height={75}/>
         </Link>
+        <div>
+          <p className=" head-text text-light-1">Droogger</p>
+        </div>
         <div className="flex items-center gap-3">
           <SignedIn>
               <OrganizationSwitcher
