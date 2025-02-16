@@ -129,6 +129,7 @@ export async function likeOrDislikePost(userId: string, postId: string, path: st
         connectToDb();
         // Find the user and check if they have already liked the post
         const user = await User.findOne({ id: userId });
+        console.log(userId)
         if (!user) throw new Error('User not found');
 
         let post;
@@ -156,7 +157,7 @@ export async function likeOrDislikePost(userId: string, postId: string, path: st
                 throw new Error('Post not found');
             }
             // Add the tweet to the user's likedPosts array
-            user.likedPosts.$push(postId);
+            user.likedPosts.push(postId);
         }
         await user.save();
         revalidatePath(path)

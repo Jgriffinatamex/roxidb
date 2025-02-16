@@ -76,7 +76,7 @@
     }
   
     .user-card_btn {
-      @apply h-auto min-w-[74px] rounded-lg bg-primary-500 text-[12px] text-light-1 !important;
+      @apply h-auto min-w-[74px] rounded-lg bg-green-500 text-[12px] text-light-1 !important;
     }
   
     .head-text {
@@ -97,7 +97,7 @@
     }
   
     .group-card_btn {
-      @apply rounded-lg bg-primary-500 px-5 py-1.5 text-small-regular !text-light-1 !important;
+      @apply rounded-lg bg-green-500 px-5 py-1.5 text-small-regular !text-light-1 !important;
     }
   
     .tweet-card_bar {
