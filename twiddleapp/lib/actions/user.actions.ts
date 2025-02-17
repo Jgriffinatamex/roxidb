@@ -6,7 +6,7 @@ import { connectToDb } from "../mongoose"
 import { FilterQuery, model, SortOrder } from "mongoose";
 import Post from "../models/post.model";
 import Group from "../models/group.model";
-import path from "path";
+
 
 interface CreateUserParams {
     userId: String;

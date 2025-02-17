@@ -156,14 +156,16 @@ const PostCard = ({
                  href={`/post/${repostOf._id}`}
                 >
                 <p className="text-subtle-medium text-gray-1">
-                  {`Retweeted from ${repostOf.author.name}`}
+                  {`RP from ${repostOf.author.name}`}
                 </p>
                 </Link>
               )}
             </div>
           </div>
         </div>
-        <p className="text-subtle-medium text-gray-1">{formatDateString(createdAt)}</p>
+        <p className="text-subtle-medium text-gray-1">
+          {formatDateString(createdAt)}
+        </p>
         {/* {!isComment && group && (
           <Link
             href={`/groups/${group.id}`} className="mt-5 flex items-center"

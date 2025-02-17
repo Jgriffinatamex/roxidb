@@ -11,7 +11,7 @@ import RepliesTab from "@/components/shared/RepliesTab"
 
 
 
-const Page = async ({params}:{params: {id: string}}) => {
+const Page = async ( {params}: {params: {id: string}} ) => {
   //const params = await props.params;
   const user = await currentUser()
   if (!user) return null
@@ -30,7 +30,7 @@ const Page = async ({params}:{params: {id: string}}) => {
         bio={userInfo.bio}
         type='User'
       />
-      <div className="mt-9">
+      <div className="mt-1">
         <Tabs defaultValue='posts' className='w-full'>
           <TabsList className='tab'>
             {profileTabs.map(tab => (

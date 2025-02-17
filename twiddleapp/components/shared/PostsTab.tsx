@@ -46,6 +46,11 @@ interface Result{
                 image: string;
                 id: string;
             };
+            group: {
+                id: string;
+                name: string;
+                image: string;
+            } | null;
             createdAt: string;
             children: {
                 author: {
@@ -69,7 +74,7 @@ const PostsTab = async ({ currentUserId, accountId, accountType, user }: Props) 
 
     return(
         <>
-            <section>
+            <section className="mt-1 flex flex-col gap-1">
                 {result.posts.map(async (post) => {
                     const isOwner = await isPostByUser(userInfo?._id, post?._id)
                     return(
