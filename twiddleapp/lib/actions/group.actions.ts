@@ -254,3 +254,21 @@ export const createGroup = async (
             throw error;
         }
     }
+    export const fetchGroupDetails = async (id: string) => {
+        try {
+            connectToDb();
+
+            const groupDetails = await Group.findOne({id}).populate([
+                'createdBy',
+                {
+                    path: 'members',
+                    model: User,
+                    select: 'name username image _id id',
+                },
+            ]);
+            return groupDetails;
+        } catch (error) {
+            console.error("Error fetching group details:", error);
+            throw error;
+        }
+    }
