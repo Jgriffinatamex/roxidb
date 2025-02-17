@@ -6,6 +6,7 @@ import { connectToDb } from "../mongoose"
 import { FilterQuery, model, SortOrder } from "mongoose";
 import Post from "../models/post.model";
 import Group from "../models/group.model";
+import path from "path";
 
 interface CreateUserParams {
     userId: String;
@@ -206,5 +207,36 @@ export const fetchUserPosts = async (userId: string) => {
         return posts;
     } catch (error) {
         console.error('Error fetcing user posts:', error)
+    }
+}
+
+export const fetchUserReplies = async (userId: string) => {
+    try {
+        connectToDb();
+        // Find all replies authored by the user with the given userId
+        const replies = await User.findOne({ id: userId }).populate({
+            path: 'replies',
+            model: Post,
+            populate: [
+                {
+                    path: 'group',
+                    model: Group,
+                    select: 'name id image _id',// Select the "name", "id", "image", and "_id" fields from the "Group" model
+                },
+                {
+                    path: 'children',
+                    model: Post,
+                    populate: {
+                        path: 'author',
+                        model: User,
+                        select: 'name image id', // Select the "name", "image", and "id" fields from the "User" model
+                    },
+                },
+            ],
+        });
+        return replies
+    } catch (error: any) {
+        console.error("Error fetching user replies:", error);
+      throw error;
     }
 }

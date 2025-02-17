@@ -1,11 +1,13 @@
-import PostsTab from "@/components/shared/PostsTab"
+
 import ProfileHeader from "@/components/shared/ProfileHeader"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { profileTabs } from "@/constants"
 import { fetchUser } from "@/lib/actions/user.actions"
 import { currentUser } from "@clerk/nextjs/server"
-import Image from "next/image"
 import { redirect } from "next/navigation"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { profileTabs } from "@/constants"
+import Image from "next/image"
+import PostsTab from "@/components/shared/PostsTab"
+import RepliesTab from "@/components/shared/RepliesTab"
 
 
 
@@ -15,7 +17,7 @@ const Page = async ({params}: {params: {id: string}}) => {
   if (!user) return null
   const userInfo = await fetchUser(params.id)
   //console.log(id)
-  if ( userInfo?.onboarded) redirect('/onboarding')
+  if ( !userInfo?.onboarded) redirect('/onboarding')
   return ( 
     <>
     <section>

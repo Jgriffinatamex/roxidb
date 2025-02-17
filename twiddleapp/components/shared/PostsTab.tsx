@@ -37,24 +37,24 @@ interface Result{
                 image: string;
             };
         }[];
-    repostOf?:{
-        id: string;
-        text: string;
-        parentId: string | null;
-        author: {
-            name: string;
-            image: string;
+        repostOf?:{
             id: string;
-        };
-        createdAt: string;
-        children: {
+            text: string;
+            parentId: string | null;
             author: {
-                id: string;
+                name: string;
                 image: string;
+                id: string;
             };
-        };
-    } | null;
-    likes: number;
+            createdAt: string;
+            children: {
+                author: {
+                    id: string;
+                    image: string;
+                };
+            };
+        } | null;
+        likes: number;
     }[];
 }
 
@@ -71,9 +71,35 @@ const PostsTab = async ({ currentUserId, accountId, accountType, user }: Props) 
         <>
             <section>
                 {result.posts.map(async (post) => {
-                    const isOwnder = await isPostByUser(userInfo?._id, post?._id)
+                    const isOwner = await isPostByUser(userInfo?._id, post?._id)
                     return(
-                        <PostCard/>
+                        <PostCard
+                            key={post._id}
+                            id={post._id}
+                            currentUserId={currentUserId}
+                            DB_userId={userInfo._id}
+                            repostOf={post.repostOf}
+                            parentId={post.parentId}
+                            content={post.text}
+                            owner={isOwner}
+                            author={
+                                accountType === 'User' ? { name: result.name, image: result.image, id: result.id} 
+                                : {
+                                    name: post.author.name,
+                                    image: post.author.image,
+                                    id: post.author.id,
+                                }
+                            }
+                            group={
+                                accountType === 'Group' 
+                                ? { name: result.name, id: result.id, image: result.image}
+                                : post.group
+                            }
+                            createdAt={post.createdAt}
+                            comments={post.children}
+                            likes={post.likes}
+                            liked={ userInfo.likedPosts.includes(post._id)}
+                        />
                     )
                 }
                 )}
