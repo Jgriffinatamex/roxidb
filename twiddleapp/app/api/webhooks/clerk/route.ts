@@ -15,7 +15,7 @@ import { addMemberToGroup, createGroup, removeUserFromGroup, updateGroupInfo } f
         }
     
         // Get the headers
-        const headerPayload = headers()
+        const headerPayload = await headers()
         const svix_id = (await headerPayload).get('svix-id')
         const svix_timestamp = (await headerPayload).get('svix-timestamp')
         const svix_signature = (await headerPayload).get('svix-signature')

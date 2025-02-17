@@ -1,10 +1,11 @@
 'use server'
 
-import { FilterQuery, SortOrder } from "mongoose";
+import { FilterQuery, model, SortOrder } from "mongoose";
 import Group from "../models/group.model";
 import Post from "../models/post.model";
 import User from "../models/user.model";
 import { connectToDb } from "../mongoose";
+import path from "path";
 
 interface createGroupParams {
     id: string;
@@ -209,5 +210,47 @@ export const createGroup = async (
         } catch (error) {
             console.error('failed to fetch groups',error)
             throw error;  
+        }
+    }
+    export const fetchGroupPosts = async ( id: string ) => {
+        try {
+            connectToDb()
+
+            const groupPosts = await Group.findById(id)
+            .populate({
+                path: 'posts',
+                model: Post,
+                options: {
+                    sort: {createdAt: 'desc'}
+                },// Sort tweets in descending order by createdAt
+                    populate: [
+                        {
+                            path: 'author',
+                            model: User,
+                            select: 'name image id', // Select the "name" and "_id" fields from the "User" model
+                        },
+                        {
+                            path: 'repostOf', // Populate the retweetOf field
+                            populate: {
+                                path: 'author',
+                                model: User,
+                                select: '_id name image',
+                            },
+                        },
+                        {
+                            path: 'children',
+                            model: Post,
+                            populate: {
+                                path: 'author',
+                                model: User,
+                                select: 'image _id', // Select the "name" and "_id" fields from the "User" model
+                            },
+                        },
+                    ],
+            });
+            return groupPosts;
+        } catch (error) {
+            console.error("Error fetching group posts:", error);
+            throw error;
         }
     }

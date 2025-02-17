@@ -37,11 +37,11 @@ export const sidebarLinks = [
   ];
 
   export const profileTabs = [
-    { value: "tweets", label: "Tweets", icon: "/assets/gray-tweet.svg" },
+    { value: "postss", label: "Posts", icon: "/assets/gray-tweet.svg" },
     { value: "replies", label: "Replies", icon: "/assets/reply.svg" },
   ];
 
   export const groupTabs = [
-    { value: "tweets", label: "Tweets", icon: "/assets/gray-tweet.svg" },
+    { value: "posts", label: "Posts", icon: "/assets/gray-tweet.svg" },
     { value: "members", label: "Members", icon: "/assets/members.svg" },
   ];

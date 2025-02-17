@@ -3,8 +3,9 @@
 import { revalidatePath } from "next/cache";
 import User from "../models/user.model"
 import { connectToDb } from "../mongoose"
-import { FilterQuery, SortOrder } from "mongoose";
+import { FilterQuery, model, SortOrder } from "mongoose";
 import Post from "../models/post.model";
+import Group from "../models/group.model";
 
 interface CreateUserParams {
     userId: String;
@@ -163,5 +164,47 @@ export async function likeOrDislikePost(userId: string, postId: string, path: st
         revalidatePath(path)
     } catch (error: any) {
         throw new Error(`Like or Dislike failed ${error.message}`);
+    }
+}
+
+export const fetchUserPosts = async (userId: string) => {
+    try {
+        connectToDb();
+        // Find all tweets authored by the user with the given userId
+        const posts = await User.findOne({id: userId}).populate({
+            path: 'posts',
+            model: Post,
+            options: {
+                sort: { createdAt: 'desc'}
+            },
+            // Sort tweets in descending order by createdAt
+            populate:[
+                {
+                    path: 'group',
+                    model: Group,
+                    select: 'name id image _id', // Select the "name" and "_id" fields from the "Group" model
+                },
+                {
+                    path: 'repostOf', // Populate the retweetOf field
+                    populate: {
+                        path: 'author',
+                        model: User,
+                        select: '_id name image',
+                    },
+                },
+                {
+                    path: 'children',
+                    model: Post,
+                    populate: {
+                        path: 'author',
+                        model: User,
+                        select: 'name image id',
+                    },
+                },
+            ],
+        });
+        return posts;
+    } catch (error) {
+        console.error('Error fetcing user posts:', error)
     }
 }
