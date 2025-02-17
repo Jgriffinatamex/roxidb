@@ -21,12 +21,12 @@ const LandingPage = () => {
             </h1>
             <p className="text-light-1 text-xl lg:text-3xl mb-5 lg:mb-10 text-center lg:text-left">A Different Place</p>
             <SignInButton>
-                <button className="lg:w-full text-black mx-5 my-2 lg:mx-0 lg:my-2 px-6 py-2 rounded-lg bg-white hover:bg-slate-300">
+                <button className="lg:w-full text-white mx-5 my-2 lg:mx-0 lg:my-2 px-6 py-2 rounded-full bg-green-500 hover:bg-slate-300">
                     Log In
                 </button>
             </SignInButton>
             <SignUpButton>
-                <button className="lg:w-full text-black mx-5 my-2 lg:mx-0 lg:my-2 px-6 py-2 rounded-lg bg-emerald-100 hover:bg-green-300">
+                <button className="lg:w-full text-green-500 mx-5 my-2 lg:mx-0 lg:my-2 px-6 py-2 rounded-full bg-white hover:bg-green-300">
                     Sign Up
                 </button>
             </SignUpButton> 

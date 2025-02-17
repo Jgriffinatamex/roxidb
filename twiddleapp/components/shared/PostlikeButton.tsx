@@ -37,7 +37,7 @@ const PostLikeButton = ({
                 onClick={handleLike}
             />
             {likes > 0 && (
-                <p className="ml-[15px] rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2">
+                <p className="ml-[15px] rounded-sm bg-dark-2 px-2 py-1 !text-tiny-medium text-light-2">
                     {likes}
                 </p>
             )}

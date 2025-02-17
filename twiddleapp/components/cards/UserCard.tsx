@@ -29,9 +29,9 @@ const UserCard = ({
           <Image 
           src={ imgUrl }
           alt="Logo"
-          width={48}
-          height={48}
-          className="rounded-full"
+          width={32}
+          height={32}
+          className="rounded-lg"
           />
           <div className="flex-1 text-ellipsis">
             <h4 className="text-base-semibold text-light-1">{name}</h4>

@@ -4,25 +4,30 @@ export const sidebarLinks = [
       route: "/",
       label: "Home",
     },
-    {
-      imgURL: "/assets/profile-white.svg",
-      route: '/profile',
-      label: "Profile",
-    },
+    // {
+    //   imgURL: "/assets/profile-white.svg",
+    //   route: '/profile',
+    //   label: "Profile",
+    // },
     {
       imgURL: "/assets/notifications-white.svg",
       route: "/notifications",
       label: "Alerts",
     },
     {
-      imgURL: "/assets/post.svg",
-      route: "/create-post",
-      label: "Post",
-    },
-    {
       imgURL: "/assets/groups-white.svg",
       route: "/groups",
       label: "Groups",
+    },
+    {
+      imgURL: "/assets/profile-white.svg",
+      route: '/profile',
+      label: "Profile",
+    },
+    {
+      imgURL: "/assets/post.svg",
+      route: "/create-post",
+      label: "Post",
     },
     // {
     //   imgURL: "/assets/search.svg",
