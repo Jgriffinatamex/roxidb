@@ -7,6 +7,7 @@ import Group from "../models/group.model";
 import { model } from "mongoose";
 import path from "path";
 import { any } from "zod";
+import exp from "constants";
 
 interface PostParams{
     text: string;
@@ -281,3 +282,33 @@ export const fetchPostById = async (id:string) => {
     throw new Error(`Error fetching tweet: ${err.message}`);
    } 
 }
+export const addCommentToPost = async (
+    postId: string,
+    commentText: string,
+    userId: string,
+    path: string
+) => {
+    connectToDb()
+    try {
+        const originalPost = await Post.findById(postId)
+        if (!originalPost) throw new Error('Post not found');
+
+        const commentPost = new Post({
+            text: commentText,
+            author: userId,
+            parentId: postId,
+        });
+
+        const savedCommentPost = await commentPost.save();
+        // Update user's replies
+        await User.findByIdAndUpdate(userId,{
+            $push: { replies: savedCommentPost._id}
+        });
+
+        originalPost.children.push(savedCommentPost._id);
+        await originalPost.save();
+        revalidatePath(path);
+    } catch (err: any) {
+        throw new Error(`Error adding comment to tweet: ${err.message}`);
+    }
+};

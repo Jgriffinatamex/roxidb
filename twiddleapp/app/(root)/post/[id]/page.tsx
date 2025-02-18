@@ -1,9 +1,11 @@
 import PostCard from "@/components/cards/PostCard"
+import Comment from "@/components/forms/Comment"
 import { fetchPostById, isPostByUser } from "@/lib/actions/post.actions"
 import { fetchUser } from "@/lib/actions/user.actions"
 import { currentUser } from "@clerk/nextjs/server"
 import Image from "next/image"
 import { redirect } from "next/navigation"
+
 
 const Page = async ({params}: {params: {id: string}}) => {
     const user = await currentUser()
@@ -48,6 +50,40 @@ const Page = async ({params}: {params: {id: string}}) => {
                         liked={ userInfo.likedPosts.includes(post._id) }
                         owner={isOwner}
                     />
+                </div>
+                <div className="mt-7">
+                    <Comment
+                        postId = {post.id}
+                        currentUserImg = {userInfo.image}
+                        currentUserId = {JSON.stringify(userInfo._id)}
+                    />
+                </div>
+
+                <div className="mt-10">
+                    {post.children.map(async (child: any) => 
+                    {
+                        const isOwner = await isPostByUser(userInfo?._id, child?._id)
+                        return(
+                            <PostCard
+                                key={child._id}
+                                id={child._id}
+                                DB_userId={userInfo?._id}
+                                currentUserId={user?.id || ''}
+                                parentId={child.parentId}
+                                content={child.text}
+                                author={child.author}
+                                group={child.group}
+                                createdAt={child.createdAt}
+                                comments={child.children}
+                                isComment
+                                owner={isOwner}
+                                likes={child.likes}
+                                liked={userInfo.likedPosts.includes(child._id)}
+                            />
+                        )
+                    }
+                    )}
+
                 </div>
             </section>
         )
