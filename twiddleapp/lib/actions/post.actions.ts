@@ -4,6 +4,9 @@ import Post from "../models/post.model";
 import User from "../models/user.model";
 import { connectToDb } from "../mongoose";
 import Group from "../models/group.model";
+import { model } from "mongoose";
+import path from "path";
+import { any } from "zod";
 
 interface PostParams{
     text: string;
@@ -228,4 +231,53 @@ export const deletePost = async (userId: string, postId: string, path: string) =
     } catch (error: any) {
         throw new Error(`Delete failed ${error.message}`);
     }
+}
+
+export const fetchPostById = async (id:string) => {
+   connectToDb();
+
+    try {
+        const post = await Post.findById(id)
+        .populate({
+            path: 'author',
+            model: User,
+            select: '_id id name image',
+        })
+        .populate({
+            path: 'children',
+            populate: [
+                {
+                    path: 'author',
+                    model: User,
+                    select: '_id name image',     
+                },
+                {
+                    path: 'children',
+                    model: Post,
+                    populate: {
+                        path: 'author',
+                        model: User,
+                        select: '_id name image',
+                    },
+                },
+            ],
+        })
+        .populate({
+            path: 'repostOf',// Populate the retweetOf field
+            populate: {
+                path: 'author',
+                model: User,
+                select: '_id name image',
+            }, 
+        })
+        .populate({
+            path: 'group',
+            model: Group,
+        })
+        .exec();
+        return post;
+
+   } catch (err: any) {
+    throw new Error(`Error fetching tweet: ${err.message}`);
+   } 
 }
