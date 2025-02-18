@@ -240,3 +240,30 @@ export const fetchUserReplies = async (userId: string) => {
       throw error;
     }
 }
+
+export const getActivity = async (userId:string) => {
+    try {
+        connectToDb();
+
+        // Find all tweets created by the user
+        const userPosts = await Post.find({ author: userId });
+        // Collect all the child tweet ids (replies) from the 'children' field of each user tweet
+        const childPostIds = userPosts.reduce((acc, userPosts) => {
+            return acc.concat(userPosts.children);
+        },[]);
+
+        // Find and return the replies excluding the ones created by the same user
+        const replies = await Post.find({
+            _id: { $in: childPostIds },
+            author: { $ne: userId },// Exclude tweets authored by the same user
+        }).populate({
+            path: 'author',
+            model: User,
+            select: 'name image _id',
+        });
+
+        return replies;
+    } catch (error) {
+        console.error("Error fetching replies: ", error);
+    }
+}

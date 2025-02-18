@@ -9,7 +9,7 @@ const TopBar = () => {
     <>
       <nav className="topbar">
         <Link href='/' className="flex items-center gap-4">
-          <Image src='/assets/logo.svg' alt="logo" width={75} height={75}/>
+          <Image src='/assets/oops.svg' alt="logo" width={75} height={75}/>
         </Link>
         <div>
           <p className=" head-text text-light-1">Droogger</p>

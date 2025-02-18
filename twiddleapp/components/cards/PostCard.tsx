@@ -112,9 +112,9 @@ const PostCard = ({
                       groupId={group ? group.id : null}
                       reposted={repostOf ? true : false} 
                     />
-                    <SharePostButton
+                    {/* <SharePostButton
                       postPath={`/post/${id}`}
-                    />
+                    /> */}
                     {owner && (
                       <DeletePostButton
                         userId={DB_userId}
