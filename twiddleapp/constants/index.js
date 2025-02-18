@@ -29,11 +29,11 @@ export const sidebarLinks = [
       route: "/create-post",
       label: "Post",
     },
-    // {
-    //   imgURL: "/assets/search.svg",
-    //   route: "/search",
-    //   label: "Search",
-    // },
+    {
+      imgURL: "/assets/search.svg",
+      route: "/search",
+      label: "Search",
+    },
   ];
 
   export const profileTabs = [
