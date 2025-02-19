@@ -60,6 +60,11 @@ const LeftSideBar = () => {
             Shout!
           </Button>
         </Link>
+        <Link href={'/search'}>
+          <Button size={'sm'} className="group-card_btn w-full">
+            Search
+          </Button>
+        </Link>
 
       </div>
     </section>

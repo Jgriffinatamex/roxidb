@@ -5,6 +5,7 @@ import { useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation"
+import { Button } from "../ui/button";
 
 
 const BottomBar = () => {
@@ -25,7 +26,7 @@ const BottomBar = () => {
               <Link 
                 href={link.route}
                 key={link.label}
-                className={`bottombar_link ${isActive && 'bg-green-500'
+                className={`bottombar_link ${isActive && 'bg-transparent'
 
                 }`}
               >
@@ -43,6 +44,31 @@ const BottomBar = () => {
             )
           })
         }
+                <Link href={'/alerts'}>
+        <Button size={'sm'} className="bottombar_btn w-fit">
+          Alerts
+        </Button>
+      </Link>
+        <Link href={'/groups'}>
+          <Button size={'sm'} className="bottombar_btn w-fit">
+            Groups
+          </Button>
+        </Link>
+        <Link href={ `/profile/${userId}`}>
+          <Button size={'sm'} className="bottombar_btn w-fit">
+            Profile
+          </Button>
+        </Link>
+        <Link href={'/create-post'}>
+          <Button size={'sm'} className="bottombar_btn w-fit">
+            Shout!
+          </Button>
+        </Link>
+        <Link href={'/search'}>
+          <Button size={'sm'} className="bottombar_btn w-fit">
+            Search
+          </Button>
+        </Link>
       </div>
     </section>
     </>

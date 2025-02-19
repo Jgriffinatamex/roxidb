@@ -19,16 +19,16 @@ export const sidebarLinks = [
     //   route: "/groups",
     //   label: "Groups",
     // },
-    {
-      imgURL: "/assets/post.svg",
-      route: "/create-post",
-      label: "Post",
-    },
-    {
-      imgURL: "/assets/search-white.svg",
-      route: "/search",
-      label: "Search",
-    },
+    // {
+    //   imgURL: "/assets/post.svg",
+    //   route: "/create-post",
+    //   label: "Post",
+    // },
+    // {
+    //   imgURL: "/assets/search-white.svg",
+    //   route: "/search",
+    //   label: "Search",
+    // },
   ];
 
   export const profileTabs = [
