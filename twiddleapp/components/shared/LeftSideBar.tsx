@@ -23,7 +23,7 @@ const LeftSideBar = () => {
                 <Link 
                   href={link.route}
                   key={link.label}
-                  className={`leftsidebar_link ${isActive && 'bg-green-500'}`
+                  className={`leftsidebar_link ${isActive && 'bg-sky-500'}`
                 }
                 >
                   <Image 
@@ -40,14 +40,27 @@ const LeftSideBar = () => {
             }
           )
         }
+        <Link href={'/alerts'}>
+        <Button size={'sm'} className="group-card_btn w-full">
+          Alerts
+        </Button>
+      </Link>
+        <Link href={'/groups'}>
+          <Button size={'sm'} className="group-card_btn w-full">
+            Groups
+          </Button>
+        </Link>
         <Link href={ `/profile/${userId}`}>
-          <Button size={'sm'} className="group-card_btn">
+          <Button size={'sm'} className="group-card_btn w-full">
             Profile
           </Button>
         </Link>
-        <button className='text-dark-1 bg-white rounded-full'>
-          Hi
-        </button>
+        <Link href={'/create-post'}>
+          <Button size={'sm'} className="group-card_btn w-full">
+            Shout!
+          </Button>
+        </Link>
+
       </div>
     </section>
     </>
