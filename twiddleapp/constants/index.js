@@ -14,11 +14,11 @@ export const sidebarLinks = [
       route: "/alerts",
       label: "Alerts",
     },
-    {
-      imgURL: "/assets/groups-white.svg",
-      route: "/groups",
-      label: "Groups",
-    },
+    // {
+    //   imgURL: "/assets/groups-white.svg",
+    //   route: "/groups",
+    //   label: "Groups",
+    // },
     {
       imgURL: "/assets/post.svg",
       route: "/create-post",
