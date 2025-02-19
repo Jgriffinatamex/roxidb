@@ -4,6 +4,7 @@ import { useAuth } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Button } from '../ui/button'
 
 const LeftSideBar = () => {
   const pathname = usePathname()
@@ -15,29 +16,38 @@ const LeftSideBar = () => {
         {
           sidebarLinks.map((link) => {
             const isActive = (pathname.includes(link.route) && link.route.length > 1 || pathname === link.route)
-            if (link.route === '/profile') {
-              link.route = `${link.route}/${userId}`
-            }
-            return(
-              <Link 
-                href={link.route}
-                key={link.label}
-                className={`leftsidebar_link ${isActive && 'bg-green-500'}`
+              if (link.route === '/profile') {
+                link.route = `${link.route}/${userId}`
               }
-              >
-                 <Image 
-                 src={link.imgURL}
-                 alt={link.label}
-                 width={24}
-                 height={24}
-                 />
-                 <p className='text-light-1'>
-                  {link.label}  
-                </p> 
-              </Link>
-            )
-          })
+              return(
+                <Link 
+                  href={link.route}
+                  key={link.label}
+                  className={`leftsidebar_link ${isActive && 'bg-green-500'}`
+                }
+                >
+                  <Image 
+                  src={link.imgURL}
+                  alt={link.label}
+                  width={24}
+                  height={24}
+                  />
+                  <p className='text-light-1'>
+                    {link.label}  
+                  </p> 
+                </Link>
+              )
+            }
+          )
         }
+        <Link href={ `/profile/${userId}`}>
+          <Button size={'sm'} className="group-card_btn">
+            Profile
+          </Button>
+        </Link>
+        <button className='text-dark-1 bg-white rounded-full'>
+          Hi
+        </button>
       </div>
     </section>
     </>

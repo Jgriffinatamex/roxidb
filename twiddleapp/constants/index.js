@@ -20,24 +20,19 @@ export const sidebarLinks = [
       label: "Groups",
     },
     {
-      imgURL: "/assets/profile-white.svg",
-      route: '/profile',
-      label: "Profile",
-    },
-    {
       imgURL: "/assets/post.svg",
       route: "/create-post",
       label: "Post",
     },
     {
-      imgURL: "/assets/search.svg",
+      imgURL: "/assets/search-white.svg",
       route: "/search",
       label: "Search",
     },
   ];
 
   export const profileTabs = [
-    { value: "postss", label: "Posts", icon: "/assets/gray-tweet.svg" },
+    { value: "posts", label: "Posts", icon: "/assets/gray-tweet.svg" },
     { value: "replies", label: "Replies", icon: "/assets/reply.svg" },
   ];
 

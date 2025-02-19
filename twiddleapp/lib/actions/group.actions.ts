@@ -258,7 +258,7 @@ export const createGroup = async (
         try {
             connectToDb();
 
-            const groupDetails = await Group.findOne({id}).populate([
+            const groupDetails = await Group.findOne({ id }).populate([
                 'createdBy',
                 {
                     path: 'members',

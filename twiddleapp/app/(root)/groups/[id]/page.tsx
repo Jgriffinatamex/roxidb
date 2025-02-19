@@ -12,12 +12,14 @@ import Image from "next/image";
 const Page = async ({params}:{params: { id: string } } ) => {
     const user = await currentUser();
     if (!user) return null;
+    
 
     const groupDetails = await fetchGroupDetails(params.id);
+    console.log(groupDetails)
     return(
         <section>
             <ProfileHeader
-                accountId={groupDetails.createdBy.id}
+                accountId={groupDetails._id}
                 authUserId={user.id}
                 name={groupDetails.name}
                 username={groupDetails.username}

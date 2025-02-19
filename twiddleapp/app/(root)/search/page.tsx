@@ -1,12 +1,11 @@
 
 import GroupCard from "@/components/cards/GroupCard";
 import UserCard from "@/components/cards/UserCard";
-import Pagination from "@/components/shared/Pagination";
+//import Pagination from "@/components/shared/Pagination";
 import SearchBar from "@/components/shared/SearchBar";
 import { fetchGroups } from "@/lib/actions/group.actions";
 import { fetchUser, fetchUsers } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server"
-import { group } from "console";
 import { redirect } from "next/navigation";
 
 const Page = async ({
