@@ -8,11 +8,12 @@ import { fetchUser, fetchUsers } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation";
 
-const Page = async ({
-    searchParams,
-}:{
-    searchParams: {[key: string]:string | undefined}
-}) => {
+const Page = async (
+    props:{
+        searchParams: Promise<{[key: string]:string | undefined}>
+    }
+) => {
+    const searchParams = await props.searchParams;
     const user = await currentUser();
     if(!user) return null;
 

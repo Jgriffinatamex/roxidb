@@ -11,7 +11,8 @@ import RepliesTab from "@/components/shared/RepliesTab"
 
 
 
-const Page = async ( {params}: {params: {id: string}} ) => {
+const Page = async (props: {params: Promise<{id: string}>}) => {
+  const params = await props.params;
   //const params = await props.params;
   const user = await currentUser()
   if (!user) return null
