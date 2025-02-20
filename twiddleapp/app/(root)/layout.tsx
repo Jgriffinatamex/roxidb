@@ -9,6 +9,7 @@ import LeftSideBar from "@/components/shared/LeftSideBar";
 import RightSideBar from "@/components/shared/RightSideBar";
 import BottomBar from "@/components/shared/BottomBar";
 import { currentUser } from "@clerk/nextjs/server";
+import SmallBar from "@/components/shared/SmallBar";
 
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default async function RootLayout({ children } :
                     <body>
                         <main className={`${inter.className}`}>
                             <TopBar />
+                            <SmallBar/>
                                 <main className="flex">
                                     <LeftSideBar />
                                         <section className="main-container">

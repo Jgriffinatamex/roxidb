@@ -8,7 +8,7 @@ const LandingPage = () => {
     <div className="flex flex-col lg:flex-row gap-5 p-5">
         <div className="flex justify-center ">
             <Image 
-            src='/assets/logo.svg'
+            src='/assets/brenda.svg'
             alt="Logo"
             width={400}
             height={400}

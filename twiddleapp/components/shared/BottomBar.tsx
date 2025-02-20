@@ -16,39 +16,12 @@ const BottomBar = () => {
     <>
     <section className="bottombar">
       <div className="bottombar_container">
-        {
-          sidebarLinks.map((link) => {
-            const isActive = (pathname.includes(link.route) && link.route.length > 1 || pathname === link.route)
-            if (link.route === '/profile') {
-              link.route = `${link.route}/${userId}`
-            }
-            return(
-              <Link 
-                href={link.route}
-                key={link.label}
-                className={`bottombar_link ${isActive && 'bg-transparent'
 
-                }`}
-              >
-                 <Image 
-                 src={link.imgURL}
-                 alt={link.label}
-                 width={18}
-                 height={12}
-                 />
-                 {/* Do I need this part here */}
-                 <p className='text-light-1 text-subtle-medium'>
-                  {link.label}  
-                </p> 
-              </Link>
-            )
-          })
-        }
-                <Link href={'/alerts'}>
-        <Button size={'sm'} className="bottombar_btn w-fit">
+        <Link href={'/alerts'}>
+        <Button size={'icon'} className="bottombar_btn w-fit">
           Alerts
         </Button>
-      </Link>
+        </Link>
         <Link href={'/groups'}>
           <Button size={'sm'} className="bottombar_btn w-fit">
             Groups
@@ -59,11 +32,11 @@ const BottomBar = () => {
             Profile
           </Button>
         </Link>
-        <Link href={'/create-post'}>
+        {/* <Link href={'/create-post'}>
           <Button size={'sm'} className="bottombar_btn w-fit">
             Shout!
           </Button>
-        </Link>
+        </Link> */}
         <Link href={'/search'}>
           <Button size={'sm'} className="bottombar_btn w-fit">
             Search

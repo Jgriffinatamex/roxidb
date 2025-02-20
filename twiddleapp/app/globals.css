@@ -46,18 +46,21 @@
       }
     
       .bottombar_container {
-        @apply flex items-center justify-between gap-3 xs:gap-5;
+        @apply flex items-center justify-between gap-1 xs:gap-1;
       }
     
       .bottombar_link {
         @apply relative flex flex-col items-center gap-2 rounded-full p-2 sm:flex-1 sm:px-2 sm:py-2.5;
       }
       .bottombar_btn {
-        @apply rounded-full bg-transparent px-5 py-1.5 text-small-regular !text-light-1 !important;
+        @apply rounded-lg bg-sky-500 px-5 py-1.5 text-small-regular !text-light-1 !important;
       }
   
       .topbar {
-        @apply fixed top-0 z-30 flex w-full items-center justify-between bg-dark-2 px-6 py-3;
+        @apply fixed top-0 z-30 flex w-full items-center justify-between bg-glassmorphism backdrop-blur-lg px-6 py-3 max-md:hidden;
+      }
+      .smallbar {
+        @apply fixed top-0 z-10 flex w-full items-center justify-between bg-glassmorphism backdrop-blur-lg xs:px-7 md:hidden;
       }
   
         /* Head Text */

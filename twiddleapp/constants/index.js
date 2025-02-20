@@ -1,8 +1,11 @@
+import { BsHouseFill } from "react-icons/bs";
+
 export const sidebarLinks = [
     {
       imgURL: "/assets/home-white.svg",
       route: "/",
       label: "Home",
+      icon: BsHouseFill
     },
     // {
     //   imgURL: "/assets/profile-white.svg",

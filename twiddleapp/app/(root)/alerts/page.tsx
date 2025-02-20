@@ -11,40 +11,39 @@ const Page = async () => {
     const userInfo = await fetchUser(user.id)
     if(!userInfo.onboarded) redirect('/onboarding')
     const activity = await getActivity(userInfo._id)
+    if(!activity) return null
     return(
         <>
-            {/* <section className="mt-10 flex flex-col gap-5">
-                {activity?.length > 0 ? (
+            <section>
+                {activity?.length>0 ? (
                     <>
                         {activity.map(act => (
-                            <Link 
+                            <Link
                                 key={act._id}
                                 href={`/post/${act.parentId}`}
                             >
-                                <article className="alert-card">
+                                <article>
                                     <Image
                                         src={act.author.image}
                                         alt="Profile Image"
-                                        width={20}
-                                        height={20}
+                                        width={48}
+                                        height={48}
                                         className="rounded-full object-cover"
                                     />
                                     <p className="!text-small-regular text-light-1">
                                         <span className="mr-1 text-primary-500">
                                             {act.author.name}
                                         </span>
-                                        replied to your post
+                                        {' '}replied to your post
                                     </p>
                                 </article>
                             </Link>
                         ))}
                     </>
                 ):(
-                    <p className="text-light-1 text-heading2-bold ">
-                        No Alerts Yet
-                    </p>
+                    <p>No Alerts</p>
                 )}
-            </section> */}
+            </section>
         </>
     )
 }
