@@ -13,8 +13,8 @@ const Page = async () => {
     const activity = await getActivity(userInfo._id)
     return(
         <>
-            <section className="mt-10 flex flex-col gap-5">
-                {activity.length > 0 ? (
+            {/* <section className="mt-10 flex flex-col gap-5">
+                {activity?.length > 0 ? (
                     <>
                         {activity.map(act => (
                             <Link 
@@ -44,7 +44,7 @@ const Page = async () => {
                         No Alerts Yet
                     </p>
                 )}
-            </section>
+            </section> */}
         </>
     )
 }
