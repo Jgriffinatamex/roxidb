@@ -4,7 +4,8 @@ import { dark } from '@clerk/themes'
 import Image from "next/image"
 //import Link from "next/link"
 import { useRouter } from "next/navigation"
-import SmallPostButton from "./smallPostButton"
+import SmallPostButton from "./SmallPostButton"
+
 
 
 const SmallBar = () => {
