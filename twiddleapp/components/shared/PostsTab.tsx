@@ -38,7 +38,7 @@ interface Result{
             };
         }[];
         repostOf?:{
-            id: string;
+            _id: string;
             text: string;
             parentId: string | null;
             author: {
