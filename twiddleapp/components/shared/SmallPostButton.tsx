@@ -14,8 +14,8 @@ const SmallPostButton = () => {
              mt-1
              lg:hidden
              rounded-lg
-             h-10
-             w-10
+             h-14
+             w-14
              p-4
              flex
              items-center
@@ -26,7 +26,7 @@ const SmallPostButton = () => {
              cursor-pointer
             "
         >
-            <FaFeather size={12} color="white" />
+            <FaFeather size={24} color="white" />
         </div>
         <div 
             className="
