@@ -6,6 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation"
 import { Button } from "../ui/button";
+import SmallAlertButton from "./SmallAlertsButton";
+import SmallGroupsButton from "./SmallGroupsButton";
+import SmallProfileButton from "./SmallProfileButton";
+import SmallSearchButton from "./SmallSearchButton";
 
 
 const BottomBar = () => {
@@ -16,32 +20,35 @@ const BottomBar = () => {
     <>
     <section className="bottombar">
       <div className="bottombar_container">
-
-        <Link href={'/alerts'}>
+        <SmallAlertButton/>
+        <SmallGroupsButton/>
+        <SmallProfileButton/>
+        <SmallSearchButton/>
+        {/* <Link href={'/alerts'}>
         <Button size={'icon'} className="bottombar_btn w-fit">
           Alerts
         </Button>
-        </Link>
-        <Link href={'/groups'}>
+        </Link> */}
+        {/* <Link href={'/groups'}>
           <Button size={'sm'} className="bottombar_btn w-fit">
             Groups
           </Button>
-        </Link>
-        <Link href={ `/profile/${userId}`}>
+        </Link> */}
+        {/* <Link href={ `/profile/${userId}`}>
           <Button size={'sm'} className="bottombar_btn w-fit">
             Profile
           </Button>
-        </Link>
+        </Link> */}
         {/* <Link href={'/create-post'}>
           <Button size={'sm'} className="bottombar_btn w-fit">
             Shout!
           </Button>
         </Link> */}
-        <Link href={'/search'}>
+        {/* <Link href={'/search'}>
           <Button size={'sm'} className="bottombar_btn w-fit">
             Search
           </Button>
-        </Link>
+        </Link> */}
       </div>
     </section>
     </>

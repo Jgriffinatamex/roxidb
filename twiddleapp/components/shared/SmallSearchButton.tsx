@@ -1,14 +1,14 @@
 import { useRouter } from "next/navigation"
-import { FaFeather } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
 
 
 
-const SmallPostButton = () => {
+const SmallSearchButton = () => {
     const router = useRouter();
 
 
   return (
-    <div onClick={() => router.push('/create-post')}>
+    <div onClick={() => router.push('/search')}>
         <div 
             className="
              mt-1
@@ -26,7 +26,7 @@ const SmallPostButton = () => {
              cursor-pointer
             "
         >
-            <FaFeather size={24} color="white" />
+            <BsSearch size={24} color="white" />
         </div>
         <div 
             className="
@@ -50,11 +50,11 @@ const SmallPostButton = () => {
                  font-semibold
                  text-white
                  text-[20px]">
-                Post
+                Search
             </p>
         </div>
     </div>
   )
 }
 
-export default SmallPostButton
+export default SmallSearchButton

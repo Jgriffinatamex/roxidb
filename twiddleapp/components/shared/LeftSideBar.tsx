@@ -5,6 +5,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '../ui/button'
+import SmallAlertButton from './SmallAlertsButton'
+import SmallGroupsButton from './SmallGroupsButton'
+import SmallProfileButton from './SmallProfileButton'
+import SmallSearchButton from './SmallSearchButton'
+import LargeAlertButton from './LargeAlertButton'
+import LargeGroupsButton from './LargeGroupsButton'
+import LargeProfileButton from './LargeProfileButton'
+import LargeSearchButton from './LargeSearchButton'
 
 const LeftSideBar = () => {
   const pathname = usePathname()
@@ -40,7 +48,7 @@ const LeftSideBar = () => {
             }
           )
         }
-        <Link href={'/alerts'}>
+        {/* <Link href={'/alerts'}>
         <Button size={'sm'} className="group-card_btn w-full">
           Alerts
         </Button>
@@ -49,13 +57,13 @@ const LeftSideBar = () => {
           <Button size={'sm'} className="group-card_btn w-full">
             Groups
           </Button>
-        </Link>
-        <Link href={ `/profile/${userId}`}>
+        </Link> */}
+        {/* <Link href={ `/profile/${userId}`}>
           <Button size={'sm'} className="group-card_btn w-full">
             Profile
           </Button>
-        </Link>
-        <Link href={'/create-post'}>
+        </Link> */}
+        {/* <Link href={'/create-post'}>
           <Button size={'sm'} className="group-card_btn w-full">
             Shout!
           </Button>
@@ -64,7 +72,11 @@ const LeftSideBar = () => {
           <Button size={'sm'} className="group-card_btn w-full">
             Search
           </Button>
-        </Link>
+        </Link> */}
+        <LargeAlertButton/>
+        <LargeGroupsButton/>
+        <LargeProfileButton/>
+        <LargeSearchButton/>
 
       </div>
     </section>

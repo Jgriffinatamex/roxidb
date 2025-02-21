@@ -75,7 +75,7 @@ const RepliesTab = async ({ currentUserId, accountId, user }: Props) => {
                             />
                             <Link href={`/post/${parentPostId}`}>
                                 <Button size='sm' className="group-card_btn mt-5">
-                                    See original Tweet
+                                    See original Post
                                 </Button>
                             </Link>
                         </div>

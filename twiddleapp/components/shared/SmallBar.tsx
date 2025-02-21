@@ -26,7 +26,7 @@ const SmallBar = () => {
           cursor-pointer
           transition"
       >
-        <Image src='/assets/brenda.svg' alt="logo" width={75} height={75}/>
+        <Image src='/assets/brenda.svg' alt="logo" width={75} height={75} className="rounded-full"/>
       </div>
     )
   }

@@ -1,14 +1,17 @@
+import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation"
-import { FaFeather } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 
 
-const SmallPostButton = () => {
+
+const SmallProfileButton = () => {
     const router = useRouter();
+    const { userId } = useAuth(); // Assuming useAuth() hook is used for authentication and userId is available in context.
 
 
   return (
-    <div onClick={() => router.push('/create-post')}>
+    <div onClick={() => router.push(`/profile/${userId}`)}>
         <div 
             className="
              mt-1
@@ -26,7 +29,7 @@ const SmallPostButton = () => {
              cursor-pointer
             "
         >
-            <FaFeather size={24} color="white" />
+            <FaUser size={24} color="white" />
         </div>
         <div 
             className="
@@ -50,11 +53,11 @@ const SmallPostButton = () => {
                  font-semibold
                  text-white
                  text-[20px]">
-                Post
+                Profile
             </p>
         </div>
     </div>
   )
 }
 
-export default SmallPostButton
+export default SmallProfileButton
