@@ -10,6 +10,7 @@ import SmallAlertButton from "./SmallAlertsButton";
 import SmallGroupsButton from "./SmallGroupsButton";
 import SmallProfileButton from "./SmallProfileButton";
 import SmallSearchButton from "./SmallSearchButton";
+import SmallHomeButton from "./SmallHomeButton";
 
 
 const BottomBar = () => {
@@ -20,6 +21,7 @@ const BottomBar = () => {
     <>
     <section className="bottombar">
       <div className="bottombar_container">
+        <SmallHomeButton/>
         <SmallAlertButton/>
         <SmallGroupsButton/>
         <SmallProfileButton/>

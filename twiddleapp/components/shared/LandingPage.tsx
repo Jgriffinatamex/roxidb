@@ -12,7 +12,7 @@ const LandingPage = () => {
             alt="Logo"
             width={400}
             height={400}
-            className="w-1/2 lg:w-full"
+            className="w-1/2 lg:w-full rounded-full"
             />
         </div>
         <div className="flex flex-col items-center lg:items-start">
