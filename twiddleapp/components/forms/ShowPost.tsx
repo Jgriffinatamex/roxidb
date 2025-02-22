@@ -70,7 +70,7 @@ const ShowPost = ( { userId }: Props ) => {
               </FormItem>
             )} 
         />
-            <Button type="submit" className="bg-green-500">
+            <Button type="submit" className="w-0 border-2">
               Post
             </Button>
       </form>
