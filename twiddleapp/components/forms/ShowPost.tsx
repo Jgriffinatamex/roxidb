@@ -70,7 +70,7 @@ const ShowPost = ( { userId }: Props ) => {
               </FormItem>
             )} 
         />
-            <Button type="submit" className="w-0 border-2">
+            <Button type="submit" className="w-fit user-card_btn">
               Post
             </Button>
       </form>
