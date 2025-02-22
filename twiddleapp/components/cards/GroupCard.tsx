@@ -61,12 +61,12 @@ const GroupCard = ({
              ))} 
               { members.length > 0 && members.length === 1 && (
                 <p className="ml-1 text-subtle-medium text-gray-1">
-                  {members.length}Users
+                  {members.length}Member
                 </p>
               )}
               { members.length > 0 && members.length > 1 && (
                 <p className="ml-1 text-subtle-medium text-gray-1">
-                  {members.length} Users
+                  {members.length} Members
                 </p>
               )}
           </div>
