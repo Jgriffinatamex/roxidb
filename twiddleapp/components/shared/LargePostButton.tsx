@@ -1,19 +1,18 @@
 import { useRouter } from "next/navigation"
-import { BsPeople, BsPeopleFill } from "react-icons/bs";
+import { FaFeather } from "react-icons/fa";
 
 
 
 
-const SmallGroupsButton = () => {
+const LargePostButton = () => {
     const router = useRouter();
 
 
   return (
-    <div onClick={() => router.push('/groups')}>
+    <div onClick={() => router.push('/create-post')} className="flex">
         <div 
             className="
              mt-1
-             lg:hidden
              rounded-lg
              h-14
              w-14
@@ -27,7 +26,7 @@ const SmallGroupsButton = () => {
              cursor-pointer
             "
         >
-            <BsPeople size={24} color="white" />
+            <FaFeather size={24} color="white" />
         </div>
         <div 
             className="
@@ -37,7 +36,7 @@ const SmallGroupsButton = () => {
             px-4
             py-2
             rounded-lg
-            bg-sky-500
+            bg-transparent
             hover:bg-opacity-90
             cursor-pointer
             transition
@@ -51,11 +50,11 @@ const SmallGroupsButton = () => {
                  font-semibold
                  text-white
                  text-[20px]">
-                Groups
+                Post
             </p>
         </div>
     </div>
   )
 }
 
-export default SmallGroupsButton
+export default LargePostButton

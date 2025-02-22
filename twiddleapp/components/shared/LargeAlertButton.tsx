@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation"
-import { BsBellFill } from "react-icons/bs";
+import { BsBell, BsBellFill } from "react-icons/bs";
 
 
 
@@ -26,7 +26,7 @@ const LargeAlertButton = () => {
              cursor-pointer
             "
         >
-            <BsBellFill size={24} color="white" />
+            <BsBell size={24} color="white" />
         </div>
         <div 
             className="

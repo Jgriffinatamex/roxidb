@@ -1,6 +1,6 @@
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation"
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUserSecret } from "react-icons/fa";
 
 
 
@@ -28,7 +28,7 @@ const LargeProfileButton = () => {
              cursor-pointer
             "
         >
-            <FaUser size={24} color="white" />
+            <FaUserSecret size={24} color="white" />
         </div>
         <div 
             className="

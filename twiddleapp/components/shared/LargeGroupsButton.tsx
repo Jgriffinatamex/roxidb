@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation"
-import { BsPeopleFill } from "react-icons/bs";
+import { BsPeople, BsPeopleFill } from "react-icons/bs";
 
 
 
@@ -26,7 +26,7 @@ const LargeGroupsButton = () => {
              cursor-pointer
             "
         >
-            <BsPeopleFill size={24} color="white" />
+            <BsPeople size={24} color="white" />
         </div>
         <div 
             className="

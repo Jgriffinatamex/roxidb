@@ -45,18 +45,27 @@ const ProfileHeader = ({
                             <h2 className="text-left text-heading3-bold text-light-1">{name}</h2>
                             <p className="text-base-medium text-gray-1">@{username}</p>
                         </div>
+                        <div>
+                        {accountId === authUserId && type === 'User' && (
+                            <Button className="user-card_btn w-20" onClick={() => {
+                                router.push(`/profile/edit/`)
+                                }}>
+                                    Edit Profile
+                            </Button>
+                        )}
+                        </div>
                     </div>
 
                 </div>
                 <p className="mt-6 max-w-lg text-base-regular text-light-2">{ bio }</p>
                 <div className="mt-12 h-0.5 w-full bg-dark-3"/>
-                {accountId === authUserId && type === 'User' && (
+                {/* {accountId === authUserId && type === 'User' && (
                     <Button className="user-card_btn w-20" onClick={() => {
                         router.push(`/profile/edit/`)
                     }}>
                         Edit Profile
                     </Button>
-                )}
+                )} */}
            </div>
         </>
     )

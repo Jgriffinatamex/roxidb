@@ -13,6 +13,7 @@ import LargeAlertButton from './LargeAlertButton'
 import LargeGroupsButton from './LargeGroupsButton'
 import LargeProfileButton from './LargeProfileButton'
 import LargeSearchButton from './LargeSearchButton'
+import LargePostButton from './LargePostButton'
 
 const LeftSideBar = () => {
   const pathname = usePathname()
@@ -77,6 +78,7 @@ const LeftSideBar = () => {
         <LargeGroupsButton/>
         <LargeProfileButton/>
         <LargeSearchButton/>
+        <LargePostButton/>
 
       </div>
     </section>

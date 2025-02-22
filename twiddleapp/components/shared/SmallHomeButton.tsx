@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation"
-import { BsHouseFill } from "react-icons/bs";
+import { BsHouse, BsHouseFill } from "react-icons/bs";
 
 
 
@@ -26,7 +26,7 @@ const SmallHomeButton = () => {
              cursor-pointer
             "
         >
-            <BsHouseFill size={24} color="white" />
+            <BsHouse size={24} color="white" />
         </div>
         <div 
             className="
