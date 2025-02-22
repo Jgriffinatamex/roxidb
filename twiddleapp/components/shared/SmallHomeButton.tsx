@@ -9,7 +9,7 @@ const SmallHomeButton = () => {
 
 
   return (
-    <div onClick={() => router.push('/')}>
+    <div onClick={() => router.push('/')} className="flex">
         <div 
             className="
              mt-1
@@ -36,7 +36,7 @@ const SmallHomeButton = () => {
             px-4
             py-2
             rounded-lg
-            bg-sky-500
+            bg-transparent
             hover:bg-opacity-90
             cursor-pointer
             transition
@@ -50,7 +50,7 @@ const SmallHomeButton = () => {
                  font-semibold
                  text-white
                  text-[20px]">
-                Alerts
+                Home
             </p>
         </div>
     </div>

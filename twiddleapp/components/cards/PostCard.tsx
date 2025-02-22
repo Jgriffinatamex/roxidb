@@ -5,6 +5,7 @@ import PostLikeButton from "../shared/PostlikeButton";
 //import SharePostButton from "../shared/SharePostButton";
 import RepostButton from "../shared/RepostButton";
 import DeletePostButton from "../shared/DeletePostButton";
+import { AiOutlineMessage } from 'react-icons/ai';
 
 interface Props {
   id: string;
@@ -94,7 +95,7 @@ const PostCard = ({
               </Link>
                 <p className="mt-2 text-small-regular text-light-2">{content}</p>
                 <div className={`${isComment && 'mb-20'} mt-5 flex flex-col gap-3`}>
-                  <div className="flex gap-3">
+                  <div className="flex gap-1">
                     <PostLikeButton
                       postId={id}
                       currentUserId={currentUserId}
@@ -102,9 +103,10 @@ const PostCard = ({
                       liked={liked}
                     />
                     <Link href={`/post/${id}`}>
-                      <Image
+                    <AiOutlineMessage size={20} color="gray"/>
+                      {/* <Image
                         src='/assets/reply.svg' alt="reply" width={24} height={24} className="cursor-pointer object-contain"
-                      />
+                      /> */}
                     </Link>
                     <RepostButton
                       postId={id}

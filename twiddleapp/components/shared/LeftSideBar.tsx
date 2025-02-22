@@ -14,6 +14,7 @@ import LargeGroupsButton from './LargeGroupsButton'
 import LargeProfileButton from './LargeProfileButton'
 import LargeSearchButton from './LargeSearchButton'
 import LargePostButton from './LargePostButton'
+import SmallHomeButton from './SmallHomeButton'
 
 const LeftSideBar = () => {
   const pathname = usePathname()
@@ -74,6 +75,7 @@ const LeftSideBar = () => {
             Search
           </Button>
         </Link> */}
+        <SmallHomeButton/>
         <LargeAlertButton/>
         <LargeGroupsButton/>
         <LargeProfileButton/>

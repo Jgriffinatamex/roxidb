@@ -1,6 +1,5 @@
 import { BsBellFill, BsFeather, BsHouseFill } from 'react-icons/bs'
 import { FaUser } from 'react-icons/fa' 
-import SidebarItem from './SidebarItem'
 
 
 
