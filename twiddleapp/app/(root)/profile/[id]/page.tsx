@@ -8,6 +8,7 @@ import { profileTabs } from "@/constants"
 import Image from "next/image"
 import PostsTab from "@/components/shared/PostsTab"
 import RepliesTab from "@/components/shared/RepliesTab"
+import { AiOutlineMessage } from "react-icons/ai"
 
 
 

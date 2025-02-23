@@ -3,7 +3,7 @@
 import { likeOrDislikePost } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 interface Props {
     postId: string;

@@ -1,4 +1,5 @@
-import { BsHouseFill } from "react-icons/bs";
+import { AiOutlineMessage } from "react-icons/ai";
+import { BsPeople } from "react-icons/bs";
 
 export const sidebarLinks = [
     // {
@@ -33,10 +34,11 @@ export const sidebarLinks = [
     //   label: "Search",
     // },
   ];
-
+  const replyIcon = <AiOutlineMessage size={24} color="#555" />;
+  const groupIcon = <BsPeople size={24} color="#555" />;
   export const profileTabs = [
     { value: "posts", label: "Posts", icon: "/assets/gray-tweet.svg" },
-    { value: "replies", label: "Replies", icon: "/assets/reply.svg" },
+    { value: "replies", label: "Replies", icon:"/assets/reply.svg"},
   ];
 
   export const groupTabs = [

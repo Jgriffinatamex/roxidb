@@ -54,7 +54,7 @@ const Page = async (props: { params: Promise<{ id: string }> }) => {
               ))}
             </TabsList>
   
-            <TabsContent value="tweets" className='w-full text-light-1'>
+            <TabsContent value="posts" className='w-full text-light-1'>
             
               <PostsTab
                 currentUserId={user.id}
