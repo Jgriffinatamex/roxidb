@@ -93,7 +93,17 @@
   
     /* User card */
     .user-card {
-      @apply flex flex-row justify-between bg-dark-2 gap-4 max-xs:rounded-xl max-xs:bg-dark-4 max-xs:p-4 xs:flex-row xs:items-center;
+      @apply 
+      flex 
+      flex-row 
+      justify-between 
+      bg-dark-4 
+      gap-4 
+      max-xs:rounded-xl 
+      max-xs:bg-light-1 
+      max-xs:p-4 
+      xs:flex-row 
+      xs:items-center 
     }
   
     .user-card_avatar {
@@ -118,7 +128,7 @@
   
      /* Group Card */
      .group-card {
-      @apply w-full rounded-lg bg-dark-2 px-4 py-5 sm:w-96;
+      @apply w-full rounded-lg bg-dark-4 px-4 py-5 sm:w-96 max-xs:bg-light-1;
     }
   
     .group-card_btn {

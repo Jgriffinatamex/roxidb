@@ -55,7 +55,7 @@ const Page = async (
                     </>
                 )}
             </div>
-            <div className="mt-14 flex flex-col gap-9">
+            <div className="mt-14 flex flex-wrap gap-3">
                 {groupsResult.groups.length === 0 ? (
                     <p className="text-light-1">No Groups Found</p>
                 ):(

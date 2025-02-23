@@ -23,30 +23,39 @@ const GroupCard = ({
   return(
     <>
     <article className="group-card">
-      <div className="flex flex-wrap items-center gap-3">
-        <Link href={`/groups/${id}`} className="relative h-12 w-12">
-          <Image 
-            src={ imgUrl }
-            alt="group logo"
-            fill
-            className="rounded-full object-cover"/>
-        </Link>
-        <div>
-          <Link 
-          href={`/groups/${id}`}>
-            <h4 className="text-base-semibold text-light-1">{ name }</h4>
+      <div className="flex justify-between">
+        <div className="flex flex-wrap items-center gap-3">
+          <Link href={`/groups/${id}`} className="relative h-12 w-12">
+            <Image 
+              src={ imgUrl }
+              alt="group logo"
+              fill
+              className="rounded-full object-cover"/>
           </Link>
-          <p className="text-small-medium text-gray-1">
-            @{ username }
-          </p>
+          <div>
+            <Link 
+            href={`/groups/${id}`}>
+              <h4 className="text-base-semibold text-gray-1">{ name }</h4>
+            </Link>
+            <p className="text-small-medium text-gray-1">
+              @{ username }
+            </p>
+          </div>
         </div>
+          <div>
+            <Link href={ `/groups/${id}`}>
+                <Button size={'sm'} className="group-card_btn">
+                  View
+                </Button>
+            </Link>
+          </div>
       </div>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-        <Link href={ `/groups/${id}`}>
+        {/* <Link href={ `/groups/${id}`}>
           <Button size={'sm'} className="group-card_btn">
             View
           </Button>
-        </Link>
+        </Link> */}
         {members.length > 0 && (
           <div className="flex items-center">
              {members.map(( member, index )  => (
@@ -61,7 +70,7 @@ const GroupCard = ({
              ))} 
               { members.length > 0 && members.length === 1 && (
                 <p className="ml-1 text-subtle-medium text-gray-1">
-                  {members.length}Member
+                  {members.length} Member
                 </p>
               )}
               { members.length > 0 && members.length > 1 && (
