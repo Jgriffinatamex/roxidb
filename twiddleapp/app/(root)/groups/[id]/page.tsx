@@ -26,7 +26,7 @@ const Page = async (props: { params: Promise<{ id: string }> }) => {
         />
   
         <div className='mt-9'>
-          <Tabs defaultValue='tweets' className='w-full'>
+          <Tabs defaultValue='posts' className='w-full'>
             <TabsList className='tab'>
               {groupTabs.map((tab) => (
                 <TabsTrigger key={tab.label} value={tab.value} className='tab'>
