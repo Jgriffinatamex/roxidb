@@ -6,6 +6,7 @@ import PostLikeButton from "../shared/PostlikeButton";
 import RepostButton from "../shared/RepostButton";
 import DeletePostButton from "../shared/DeletePostButton";
 import { AiOutlineMessage } from 'react-icons/ai';
+import { formatDistanceToNowStrict } from 'date-fns';
 
 interface Props {
   id: string;
@@ -93,6 +94,7 @@ const PostCard = ({
               <Link href={`/profile/${author.id}`} className="w-fit">
                 <h4 className="cursor-pointer text-base-semibold text-light-2">{author.name}</h4>
               </Link>
+              <p className="text-gray-1 text-subtle-medium">{formatDistanceToNowStrict(createdAt)} ago</p>
                 <p className="mt-2 text-small-regular text-light-2">{content}</p>
                 <div className={`${isComment && 'mb-20'} mt-5 flex flex-col gap-3`}>
                   <div className="flex gap-1">
@@ -165,16 +167,13 @@ const PostCard = ({
             </div>
           </div>
         </div>
-        <p className="text-subtle-medium text-gray-1">
-          {formatDateString(createdAt)}
-        </p>
-        {/* {!isComment && group && (
+        {!isComment && group && (
           <Link
             href={`/groups/${group.id}`} className="mt-5 flex items-center"
           >
             <p className="text-subtle-medium text-gray-1">
-              {formatDateString(createdAt)}
-              {group && ` - ${group.name} Group`}
+              {/* {formatDateString(createdAt)} */}
+              {group && `${group.name} Group`}
             </p>
             <Image
             src={group.image}
@@ -184,7 +183,7 @@ const PostCard = ({
             className="ml-1 rounded-full object-cover"
             />
           </Link>
-        )} */}
+        )}
       </article>
     </>
   )}

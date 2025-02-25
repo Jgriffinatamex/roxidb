@@ -41,7 +41,7 @@ const Page = async () => {
                         ))}
                     </>
                 ):(
-                    <p>No Alerts</p>
+                    <p className="text-light-1">No Alerts</p>
                 )}
             </section>
         </>
