@@ -27,14 +27,14 @@ const ProfileHeader = ({
         <>
             <div className="bg-neutral-700 h-44 relative">
 
-                <div className="absolute -bottom-16 left-4">
+                {/* <div className="absolute -bottom-16 left-4">
                 <Image
                     src={imgUrl}
                     alt="Profile Image"
                     fill
                     className="rounded-full object-cover"
                 />
-                </div>
+                </div> */}
             </div>
             
            <div className="flex w-full flex-col justify-start">
@@ -43,14 +43,14 @@ const ProfileHeader = ({
                         
 
                         
-                            {/* <div className="relative h-20 w-20 object-cover">
+                            <div className="relative h-20 w-20 object-cover">
                                 <Image
                                     src={imgUrl}
                                     alt="Profile Image"
                                     fill
                                     className="rounded-full object-cover shadow-2xl"
                                 />
-                            </div> */}
+                            </div>
                         
                         
                         <div className="flex-1">
