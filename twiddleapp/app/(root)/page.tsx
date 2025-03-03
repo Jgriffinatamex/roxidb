@@ -1,4 +1,5 @@
 import PostCard from "@/components/cards/PostCard";
+import ShowPost from "@/components/forms/ShowPost";
 import LandingPage from "@/components/shared/LandingPage";
 //import Pagination from "@/components/shared/Pagination";
 import { fetchPosts, isPostByUser } from "@/lib/actions/post.actions";
@@ -33,6 +34,7 @@ export default async function Home(
     return(
       <>
       <section className="mt-1 flex flex-col gap-5">
+        <ShowPost userId={ userInfo._id } />
       { result.posts.length === 0 ? (
         <p className="text-light-1">No posts found</p>
       ):(

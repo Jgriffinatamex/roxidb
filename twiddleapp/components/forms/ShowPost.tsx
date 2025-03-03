@@ -50,7 +50,7 @@ const ShowPost = ( { userId }: Props ) => {
     <>
     <Form {...form}>
       <form 
-        className="mt-10 flex flex-col justify-start gap-10" 
+        className="mt-1 flex flex-col justify-start gap-10" 
         onSubmit={ form.handleSubmit(onSubmit)}
       >
         <FormField 

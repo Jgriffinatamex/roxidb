@@ -15,8 +15,8 @@ const TopBar = () => {
         onClick={() => router.push('/')}
         className="
           rounded-full
-          h-20
-          w-20
+          h-24
+          w-24
           p-4
           flex
           items-center
@@ -24,7 +24,7 @@ const TopBar = () => {
           cursor-pointer
           transition"
       >
-        <Image src='/assets/brenda-dark.svg' alt="logo" width={75} height={75} className="rounded-full"/>
+        <Image src='/assets/d-dark.svg' alt="logo" width={75} height={75} className="rounded-full bg-white"/>
       </div>
     )
   }

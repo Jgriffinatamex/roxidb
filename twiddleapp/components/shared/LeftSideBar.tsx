@@ -80,7 +80,7 @@ const LeftSideBar = () => {
         <LargeGroupsButton/>
         <LargeProfileButton/>
         <LargeSearchButton/>
-        <LargePostButton/>
+        {/* <LargePostButton/> */}
 
       </div>
     </section>

@@ -48,7 +48,7 @@ const RepostButton = ({
                     height={24}
                     className='cursor-pointer object-contain'
                 />
-            ):
+            ): 
                 <Image
                     src='/assets/repost.svg'
                     alt='repost'

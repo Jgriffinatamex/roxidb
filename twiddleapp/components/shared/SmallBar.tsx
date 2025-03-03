@@ -26,7 +26,7 @@ const SmallBar = () => {
           cursor-pointer
           transition"
       >
-        <Image src='/assets/brenda.svg' alt="logo" width={75} height={75} className="rounded-full"/>
+        <Image src='/assets/d-dark.svg' alt="logo" width={75} height={75} className="rounded-full bg-white"/>
       </div>
     )
   }
@@ -34,7 +34,7 @@ const SmallBar = () => {
     <>
       <nav className="smallbar">
         {sidebarLogo()}
-        <SmallPostButton/>
+        {/* <SmallPostButton/> */}
         <div className="flex items-center gap-3">
           <SignedIn>
               <OrganizationSwitcher
