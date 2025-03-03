@@ -26,7 +26,7 @@ const AlertButton = () => {
              cursor-pointer
             "
         >
-            <BsBell size={24} color="white" />
+            <BsBellFill size={24} color="white" />
         </div>
         <div 
             className="

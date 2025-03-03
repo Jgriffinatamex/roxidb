@@ -28,7 +28,7 @@ const ProfileButton = () => {
              cursor-pointer
             "
         >
-            <FaUserSecret size={24} color="white" />
+            <FaUser size={24} color="white" />
         </div>
         <div 
             className="

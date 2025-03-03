@@ -26,7 +26,7 @@ const GroupsButton = () => {
              cursor-pointer
             "
         >
-            <BsPeople size={24} color="white" />
+            <BsPeopleFill size={24} color="white" />
         </div>
         <div 
             className="

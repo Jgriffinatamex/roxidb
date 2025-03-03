@@ -26,7 +26,7 @@ const HomeButton = () => {
              cursor-pointer
             "
         >
-            <BsHouse size={24} color="white" />
+            <BsHouseFill size={24} color="white" />
         </div>
         <div 
             className="
