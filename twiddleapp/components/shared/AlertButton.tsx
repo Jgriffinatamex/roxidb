@@ -1,17 +1,15 @@
-import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation"
-import { FaUser, FaUserSecret } from "react-icons/fa";
+import { BsBell, BsBellFill } from "react-icons/bs";
 
 
 
 
-const LargeProfileButton = () => {
+const AlertButton = () => {
     const router = useRouter();
-    const { userId } = useAuth(); // Assuming useAuth() hook is used for authentication and userId is available in context.
 
 
   return (
-    <div onClick={() => router.push(`/profile/${userId}`)} className="flex">
+    <div onClick={() => router.push('/alerts')} className="flex">
         <div 
             className="
              mt-1
@@ -28,7 +26,7 @@ const LargeProfileButton = () => {
              cursor-pointer
             "
         >
-            <FaUserSecret size={24} color="white" />
+            <BsBell size={24} color="white" />
         </div>
         <div 
             className="
@@ -52,11 +50,11 @@ const LargeProfileButton = () => {
                  font-semibold
                  text-white
                  text-[20px]">
-                Profile
+                Alerts
             </p>
         </div>
     </div>
   )
 }
 
-export default LargeProfileButton
+export default AlertButton

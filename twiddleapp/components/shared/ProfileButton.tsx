@@ -1,15 +1,17 @@
+import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation"
-import { BsHouse, BsHouseFill } from "react-icons/bs";
+import { FaUser, FaUserSecret } from "react-icons/fa";
 
 
 
 
-const SmallHomeButton = () => {
+const ProfileButton = () => {
     const router = useRouter();
+    const { userId } = useAuth(); // Assuming useAuth() hook is used for authentication and userId is available in context.
 
 
   return (
-    <div onClick={() => router.push('/')} className="flex">
+    <div onClick={() => router.push(`/profile/${userId}`)} className="flex">
         <div 
             className="
              mt-1
@@ -26,7 +28,7 @@ const SmallHomeButton = () => {
              cursor-pointer
             "
         >
-            <BsHouse size={24} color="white" />
+            <FaUserSecret size={24} color="white" />
         </div>
         <div 
             className="
@@ -50,11 +52,11 @@ const SmallHomeButton = () => {
                  font-semibold
                  text-white
                  text-[20px]">
-                Home
+                Profile
             </p>
         </div>
     </div>
   )
 }
 
-export default SmallHomeButton
+export default ProfileButton

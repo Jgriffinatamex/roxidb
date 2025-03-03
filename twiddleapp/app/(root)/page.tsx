@@ -34,7 +34,9 @@ export default async function Home(
     return(
       <>
       <section className="mt-1 flex flex-col gap-5">
+        <div className="max-md:hidden">
         <ShowPost userId={ userInfo._id } />
+        </div>
       { result.posts.length === 0 ? (
         <p className="text-light-1">No posts found</p>
       ):(

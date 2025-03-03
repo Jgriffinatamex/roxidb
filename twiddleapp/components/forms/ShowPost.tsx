@@ -16,6 +16,7 @@ import { PostValidation } from "@/lib/validations/post";
 import { usePathname, useRouter } from "next/navigation";
 import { createPost } from "@/lib/actions/post.actions";
 import { useOrganization } from "@clerk/nextjs";
+import Image from "next/image";
 
 
 
@@ -48,10 +49,9 @@ const ShowPost = ( { userId }: Props ) => {
   }
   return (
     <>
-    {/* <p className="text-light-1">Speak</p> */}
     <Form {...form}>
       <form 
-        className="mt-1 flex flex-col justify-start gap-10" 
+        className="mt-1 flex flex-col justify-start gap-5" 
         onSubmit={ form.handleSubmit(onSubmit)}
       >
         <FormField 
@@ -61,7 +61,15 @@ const ShowPost = ( { userId }: Props ) => {
               <FormItem className="flex w-full flex-col gap-3">
                   <FormLabel className="text-base-semibold text-light-2"> 
                   </FormLabel>
-                    <FormControl className="no-focus border border-dark-4 bg-dark-4 text-light-1">
+                    <FormControl className="no-focus border border-light-4 bg-dark-3 text-light-1">
+                                                  
+                        {/* <Image
+                            src={imgUrl}
+                            alt="Profile Image"
+                            fill
+                            className="rounded-full object-cover shadow-2xl"
+                        /> */}
+                                                  
                       <Textarea 
                         rows={5}
                           {...field}

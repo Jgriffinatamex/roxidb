@@ -1,15 +1,15 @@
 import { useRouter } from "next/navigation"
-import { BsBell, BsBellFill } from "react-icons/bs";
+import { BsPeople, BsPeopleFill } from "react-icons/bs";
 
 
 
 
-const SmallAlertButton = () => {
+const GroupsButton = () => {
     const router = useRouter();
 
 
   return (
-    <div onClick={() => router.push('/alerts')}>
+    <div onClick={() => router.push('/groups')} className="flex">
         <div 
             className="
              mt-1
@@ -26,7 +26,7 @@ const SmallAlertButton = () => {
              cursor-pointer
             "
         >
-            <BsBell size={24} color="white" />
+            <BsPeople size={24} color="white" />
         </div>
         <div 
             className="
@@ -36,7 +36,7 @@ const SmallAlertButton = () => {
             px-4
             py-2
             rounded-lg
-            bg-sky-500
+            bg-transparent
             hover:bg-opacity-90
             cursor-pointer
             transition
@@ -50,11 +50,11 @@ const SmallAlertButton = () => {
                  font-semibold
                  text-white
                  text-[20px]">
-                Alerts
+                Groups
             </p>
         </div>
     </div>
   )
 }
 
-export default SmallAlertButton
+export default GroupsButton

@@ -3,7 +3,7 @@ import { BsSearch } from "react-icons/bs";
 
 
 
-const LargeSearchButton = () => {
+const SearchButton = () => {
     const router = useRouter();
 
 
@@ -56,4 +56,4 @@ const LargeSearchButton = () => {
   )
 }
 
-export default LargeSearchButton
+export default SearchButton
