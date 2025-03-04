@@ -26,7 +26,7 @@ const SmallPostButton = () => {
              cursor-pointer
             "
         >
-            <FaFeather size={24} color="white" />
+            <FaFeather size={24} color="gray" />
         </div>
         <div 
             className="

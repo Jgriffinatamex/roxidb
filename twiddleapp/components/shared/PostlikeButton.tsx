@@ -38,6 +38,11 @@ const PostLikeButton = ({
                 className="cursor-pointer object-contain"
                 onClick={handleLike}
             /> */}
+            {/* {likes > 0 && (
+                <p className="ml-[1px] rounded-sm bg-transparent px-2 py-1 !text-tiny-medium text-light-2">
+                    {likes}
+                </p>
+            )} */}
             <div className='
                         flex
                         flex-row
@@ -52,7 +57,7 @@ const PostLikeButton = ({
                         <LikeIcon size={20} color={liked? 'red':''}/>
             </div>
             {likes > 0 && (
-                <p className="ml-[5px] rounded-sm bg-dark-2 px-2 py-1 !text-tiny-medium text-light-2">
+                <p className="ml-[1px] rounded-sm bg-transparent px-2 py-1 !text-tiny-medium text-light-2">
                     {likes}
                 </p>
             )}
