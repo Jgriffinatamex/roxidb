@@ -163,9 +163,10 @@ const PostCard = ({
                 <Link
                  href={`/post/${repostOf._id}`}
                 >
-                <p className="text-subtle-medium text-gray-1">
+                {/* <p className="text-subtle-medium text-gray-1">
                   {`RP from ${repostOf.author.name}`}
-                </p>
+                </p> */}
+                <p className="text-subtle-medium text-gray-1">RP</p>
                 </Link>
               )}
             </div>

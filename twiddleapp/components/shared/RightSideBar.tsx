@@ -27,6 +27,34 @@ const RightSideBar = async () => {
             Suggestions
           </h3>
       </div> */}
+      <div className="flex flex-col border border-dark-4 flex-1 justify-start rounded-lg">
+          <h3 className="text-heading4-medium text-light-1">
+            Users
+          </h3>
+          <div className="mt-7 flex w-[350] flex-col gap-5">
+            {
+              similarMinds.users.length > 0 ? (
+                <>
+                { similarMinds.users.map( ( person ) => 
+                    <UserCard
+                      key={ person.id }
+                      id={ person.id }
+                      name={ person.name }
+                      username={ person.username }
+                      imgUrl={ person.image }
+                    />
+                )}
+                </>
+              ):(
+                <>
+                <p className="!text-base-regular text-light-3">
+                  No users found yet.
+                </p>
+                </>
+              )
+            }
+          </div>
+      </div>
       <div className="flex flex-col justify-start">
           <h3 className="text-heading4-medium text-light-1">
             Groups
@@ -55,7 +83,7 @@ const RightSideBar = async () => {
             }
           </div>
       </div>
-      <div className="flex flex-col flex-1 justify-start">
+      {/* <div className="flex flex-col flex-1 justify-start">
           <h3 className="text-heading4-medium text-light-1">
             Users
           </h3>
@@ -82,7 +110,7 @@ const RightSideBar = async () => {
               )
             }
           </div>
-      </div>
+      </div> */}
     </section>
     </>
   )
