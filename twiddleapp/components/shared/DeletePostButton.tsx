@@ -3,6 +3,8 @@
 import { deletePost } from "@/lib/actions/post.actions";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { AiOutlineDelete } from "react-icons/ai";
+import { BsTrash } from "react-icons/bs";
 
 interface Props{
     userId: string;
@@ -19,13 +21,14 @@ const DeletePostButton = ({
     return(
         <>
         <button onClick={handleDeletePost}>
-            <Image
+            <AiOutlineDelete size={20} color="gray"/>
+            {/* <Image
                 src='/assets/delete.svg'
                 alt="repost"
                 width={24}
                 height={24}
                 className="cursor-pointer object-contain"
-            />
+            /> */}
         </button>
         <p className="text-light-1 text-small-regular"> Delete</p>
         </>
