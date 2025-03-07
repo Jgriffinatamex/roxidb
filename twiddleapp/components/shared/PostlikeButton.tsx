@@ -48,7 +48,7 @@ const PostLikeButton = ({
                         flex-row
                         items-center
                         text-neutral-500
-                        gap-2
+                        gap-0
                         cursor-pointer
                         transition
                         hover:text-red-500'
@@ -56,10 +56,13 @@ const PostLikeButton = ({
                         >
                         <LikeIcon size={20} color={liked? 'red':''}/>
             </div>
-            {likes > 0 && (
-                <p className="ml-[1px] rounded-sm bg-transparent px-2 py-1 !text-tiny-medium text-light-2">
-                    {likes}
-                </p>
+            {likes > 0 ? (
+                <p className="ml-[1px] rounded-sm bg-transparent py-1 text-subtle-medium text-light-2">
+                    {likes} Like{likes > 1 ? 's' : '  '}
+                </p>):(
+                 <p className="rounded-sm bg-transparent py-1 text-subtle-medium text-light-2">
+                    Like
+                  </p>
             )}
         </>
     )

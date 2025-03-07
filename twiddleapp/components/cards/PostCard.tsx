@@ -105,7 +105,7 @@ const PostCard = ({
                       likes={likes}
                       liked={liked}
                     />
-                    <p className="text-light-1 text-small-regular">Likes</p>
+                    {/* <p className="text-light-1 text-small-regular">Likes</p> */}
                     <Link href={`/post/${id}`}>
                     <AiOutlineMessage size={20} color="gray"/>
                       {/* <Image
@@ -171,10 +171,10 @@ const PostCard = ({
             </div>
             <div>
             {owner && (
-                      <DeletePostButton
-                        userId={DB_userId}
-                        postId={id}
-                      />
+                <DeletePostButton
+                  userId={DB_userId}
+                  postId={id}
+                />
               )}
             </div>
           </div>
