@@ -105,18 +105,21 @@ const PostCard = ({
                       likes={likes}
                       liked={liked}
                     />
+                    <p className="text-light-1">Likes</p>
                     <Link href={`/post/${id}`}>
                     <AiOutlineMessage size={20} color="gray"/>
                       {/* <Image
                         src='/assets/reply.svg' alt="reply" width={24} height={24} className="cursor-pointer object-contain"
                       /> */}
                     </Link>
+                    <p className="text-light-1">Comment</p>
                     <RepostButton
                       postId={id}
                       userId={DB_userId}
                       groupId={group ? group.id : null}
                       reposted={repostOf ? true : false} 
                     />
+                    <p className="text-light-1">RePost</p>
                     {/* <SharePostButton
                       postPath={`/post/${id}`}
                     /> */}

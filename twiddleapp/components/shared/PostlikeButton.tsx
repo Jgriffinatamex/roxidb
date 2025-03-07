@@ -3,7 +3,7 @@
 import { likeOrDislikePost } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiFillLike, AiOutlineHeart, AiOutlineLike } from 'react-icons/ai';
 
 interface Props {
     postId: string;
@@ -27,7 +27,7 @@ const PostLikeButton = ({
             console.error('Failed to Like', error);
         }
     }
-    const LikeIcon = liked ? AiFillHeart : AiOutlineHeart;
+    const LikeIcon = liked ? AiFillLike : AiOutlineLike;
     return(
         <>
             {/* <Image
