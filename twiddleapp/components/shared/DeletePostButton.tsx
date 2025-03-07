@@ -17,6 +17,7 @@ const DeletePostButton = ({
         await deletePost(userId, postId, path)
     }
     return(
+        <>
         <button onClick={handleDeletePost}>
             <Image
                 src='/assets/delete.svg'
@@ -26,6 +27,8 @@ const DeletePostButton = ({
                 className="cursor-pointer object-contain"
             />
         </button>
+        <p className="text-light-1 text-small-regular"> Delete</p>
+        </>
     )
 }
 

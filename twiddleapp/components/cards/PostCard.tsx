@@ -112,23 +112,30 @@ const PostCard = ({
                         src='/assets/reply.svg' alt="reply" width={24} height={24} className="cursor-pointer object-contain"
                       /> */}
                     </Link>
-                    <p className="text-light-1 text-small-regular">Comment</p>
-                    <RepostButton
+                    <p className="text-light-1 text-small-regular">Comments</p>
+                    {/* <RepostButton
                       postId={id}
                       userId={DB_userId}
                       groupId={group ? group.id : null}
                       reposted={repostOf ? true : false} 
                     />
-                    <p className="text-light-1 text-small-regular">RePost</p>
+                    <p className="text-light-1 text-small-regular">RePost</p> */}
                     {/* <SharePostButton
                       postPath={`/post/${id}`}
                     /> */}
-                    {/* {owner && (
+                    {owner ? (
                       <DeletePostButton
                         userId={DB_userId}
                         postId={id}
                       />
-                    )} */}
+                    ):(
+                      <RepostButton
+                      postId={id}
+                      userId={DB_userId}
+                      groupId={group ? group.id : null}
+                      reposted={repostOf ? true : false} 
+                    />
+                    )}
                   </div>
                   <div>
                     { comments.length > 0 && (
@@ -170,14 +177,14 @@ const PostCard = ({
                 </Link>
               )}
             </div>
-            <div>
+            {/* <div>
             {owner && (
                 <DeletePostButton
                   userId={DB_userId}
                   postId={id}
                 />
               )}
-            </div>
+            </div> */}
           </div>
         </div>
         {!isComment && group && (

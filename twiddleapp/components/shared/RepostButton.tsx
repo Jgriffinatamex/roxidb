@@ -58,6 +58,7 @@ const RepostButton = ({
                 />
             }
         </button>
+        <p className="text-small-regular text-light-1">RePost</p>
         </>
     ) 
 }
