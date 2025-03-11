@@ -147,7 +147,7 @@ const PostCard = ({
                           <p className="mt-1 mr-3 text-subtle-medium text-gray-1">
                             {comments.length} repl{comments.length > 1 ? 'ies' : 'y'}
                           </p>
-                          {comments.map(comment => (
+                          {/* {comments.map(comment => (
                             <div>
                               <Image
                                 key={comment.author.id}
@@ -158,7 +158,7 @@ const PostCard = ({
                                 className="-ml-2 rounded-full object-cover"
                               />
                             </div>
-                          ))}
+                          ))} */}
                         </Link>
                       </div>
                     )}
@@ -173,7 +173,7 @@ const PostCard = ({
                 {/* <p className="text-subtle-medium text-gray-1">
                   {`RP from ${repostOf.author.name}`}
                 </p> */}
-                <p className="text-subtle-medium text-gray-1">RP</p>
+                <p className="text-subtle-medium text-gray-1">RePost</p>
                 </Link>
               )}
             </div>
