@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation"
 import { BsSearch } from "react-icons/bs";
-import { FaPodcast } from "react-icons/fa";
+import { FaHeadphonesAlt, FaPodcast } from "react-icons/fa";
 
 
 
@@ -26,7 +26,7 @@ const PodcastButton = () => {
              cursor-pointer
             "
         >
-            <FaPodcast size={24} color="white" />
+            <FaHeadphonesAlt size={24} color="white" />
         </div>
         <div 
             className="

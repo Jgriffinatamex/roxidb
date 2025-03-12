@@ -74,9 +74,12 @@ const PostCard = ({
 }: Props) => {
   return (
     <>
-      <article className={`flex w-full border-b border-b-dark-4 border-t-dark-4 flex-col rounded-xl 
-      ${isComment ? 'px-0 xs:px-7' :'bg-dark-3 p-7 hover:bg-dark-4'}`
-      }>
+      <article 
+        className={
+          `flex w-full border-b border-b-dark-4 border-t-dark-4 flex-col rounded-xl 
+          ${isComment ? 'px-0 xs:px-7' :'bg-dark-3 p-7 hover:bg-dark-4'}`
+        }
+      >
         <div className="flex items-start justify-between">
           <div className="flex w-full flex-1 flex-row gap-4">
             <div className="flex flex-col items-center">
@@ -88,7 +91,7 @@ const PostCard = ({
                   className="cursor-pointer rounded-full"
                 />
               </Link>
-              <div className="cursor-pointer rounded-full"/>
+              <div className="border-b-light-1 cursor-pointer rounded-full"/>
             </div>
 
             <div className="flex w-full flex-col">
@@ -165,26 +168,7 @@ const PostCard = ({
                   </div>
                 </div>
             </div>
-            <div>
-              {repostOf && (
-                <Link
-                 href={`/post/${repostOf._id}`}
-                >
-                {/* <p className="text-subtle-medium text-gray-1">
-                  {`RP from ${repostOf.author.name}`}
-                </p> */}
-                <p className="text-subtle-medium text-gray-1">RePost</p>
-                </Link>
-              )}
-            </div>
-            {/* <div>
-            {owner && (
-                <DeletePostButton
-                  userId={DB_userId}
-                  postId={id}
-                />
-              )}
-            </div> */}
+
           </div>
         </div>
         {!isComment && group && (
