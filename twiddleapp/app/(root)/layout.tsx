@@ -14,7 +14,10 @@ import SmallBar from "@/components/shared/SmallBar";
 
 export const metadata: Metadata = {
     title: "Droogger",
-    description: "A different place"
+    description: "A different place",
+    icons: {
+        icon:'/assets/brenda.svg'
+    }
 }
 
 const inter = Inter({

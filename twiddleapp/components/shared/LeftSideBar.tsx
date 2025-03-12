@@ -9,6 +9,7 @@ import GroupsButton from './GroupsButton'
 import ProfileButton from './ProfileButton'
 import SearchButton from './SearchButton'
 import HomeButton from './HomeButton'
+import PodcastButton from './PodcastButton'
 
 const LeftSideBar = () => {
   const pathname = usePathname()
@@ -49,6 +50,7 @@ const LeftSideBar = () => {
         <GroupsButton/>
         <ProfileButton/>
         <SearchButton/>
+        <PodcastButton/>
       </div>
     </section>
     </>
