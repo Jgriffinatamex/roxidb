@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatDateString } from '@/lib/utils'; 
 import PostLikeButton from "../shared/PostlikeButton";
-//import SharePostButton from "../shared/SharePostButton";
+import SharePostButton from "../shared/SharePostButton";
 import RepostButton from "../shared/RepostButton";
 import DeletePostButton from "../shared/DeletePostButton";
 import { AiOutlineMessage } from 'react-icons/ai';
@@ -139,7 +139,11 @@ const PostCard = ({
                       reposted={repostOf ? true : false} 
                     />
                     )}
+                    <SharePostButton
+                      postPath={`/post/${id}`}
+                    />
                   </div>
+
                   <div>
                     { comments.length > 0 && (
                       <div>
