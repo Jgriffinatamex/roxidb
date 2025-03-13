@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import { BsShare } from "react-icons/bs";
 
 interface Props{
     postPath: string;
@@ -21,14 +22,18 @@ const SharePostButton = ({
     }
     return(
         <>
-            <Image
+            {/* <Image
                 src='/assets/share.svg'
                 alt="share"
                 width={24}
                 height={24}
                 className="cursor-pointer object-contain"
                 onClick={copyPostUrl}
-            />
+            /> */}
+            <div className="flex gap-1" onClick={copyPostUrl}>
+                <BsShare size={20} color="gray"/>
+                <p className="text-light-1 text-small-regular">Share</p>
+            </div>
         </>
     )
 }
