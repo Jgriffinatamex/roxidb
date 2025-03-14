@@ -9,7 +9,7 @@ const PodcastButton = () => {
 
 
   return (
-    <div onClick={() => router.push('/podcasts/123')} className="flex">
+    <div onClick={() => router.push('/trendingPodcasts')} className="flex">
         <div 
             className="
              mt-1

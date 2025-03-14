@@ -139,9 +139,9 @@ const PostCard = ({
                       reposted={repostOf ? true : false} 
                     />
                     )}
-                    <SharePostButton
+                    {/* <SharePostButton
                       postPath={`/post/${id}`}
-                    />
+                    /> */}
                   </div>
 
                   <div>
