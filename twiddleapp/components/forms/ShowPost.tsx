@@ -61,7 +61,7 @@ const ShowPost = ( { userId }: Props ) => {
               <FormItem className="flex w-full flex-col gap-3">
                   <FormLabel className="text-base-semibold text-light-2"> 
                   </FormLabel>
-                    <FormControl className="no-focus border border-dark-3 bg-light-2 text-dark-1">
+                    <FormControl className="no-focus border-2 border-orange-500 bg-light-2 text-dark-1">
                                                   
                         {/* <Image
                             src={imgUrl}
@@ -75,7 +75,7 @@ const ShowPost = ( { userId }: Props ) => {
                           {...field}
                       />
                     </FormControl>
-                    <FormMessage/>
+                    <FormMessage className="text-light-1"/>
               </FormItem>
             )} 
         />

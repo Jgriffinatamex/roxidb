@@ -47,11 +47,18 @@ export const sidebarLinks = [
   export const podcastData = [
     {
       id: 1,
-      title: "The Joe Rogan Experience",
+      title: "The Dog Pod",
       description: "A long form, in-depth conversation",
       imgURL:
-        "https://lovely-flamingo-139.convex.cloud/api/storage/3106b884-548d-4ba0-a179-785901f69806",
+        "/assets/brenda.svg",
     },
+    // {
+    //   id: 1,
+    //   title: "The Joe Rogan Experience",
+    //   description: "A long form, in-depth conversation",
+    //   imgURL:
+    //     "https://lovely-flamingo-139.convex.cloud/api/storage/3106b884-548d-4ba0-a179-785901f69806",
+    // },
     {
       id: 2,
       title: "The Futur",

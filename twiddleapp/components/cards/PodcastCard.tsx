@@ -13,7 +13,7 @@ const PodcastCard = ({
   podcastId: number,
 }) => {
   return (
-    <div className='text-light-1 cursor-pointer border-2 border-red-500'>
+    <div className='text-light-1 cursor-pointer rounded-xl border-2 border-red-500'>
       <figure className='flex flex-col gap-2'>
         <Image 
           src={imgUrl}

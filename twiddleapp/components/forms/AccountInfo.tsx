@@ -84,7 +84,7 @@ const AccountInfo = ({ user }: Props) => {
                                         {...field}
                                         />
                                 </FormControl>
-                                <FormMessage/>
+                                <FormMessage className="text-light-1"/>
                             </FormItem>
                         )} 
                     />
