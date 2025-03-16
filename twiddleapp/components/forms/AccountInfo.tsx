@@ -77,10 +77,10 @@ const AccountInfo = ({ user }: Props) => {
                                 <FormLabel className="text-base-semibold text-light-2"> 
                                     Speak on you self
                                 </FormLabel>
-                                <FormControl>
+                                <FormControl className="no-focus border-2 border-orange-500 bg-light-2 text-dark-1">
                                     <Textarea 
                                         rows={10}
-                                        className="account-form_input no-focus"
+                                        className=""
                                         {...field}
                                         />
                                 </FormControl>

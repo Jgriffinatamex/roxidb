@@ -59,7 +59,7 @@ const ShowPost = ( { userId }: Props ) => {
             name="post"
             render={ ( {field} ) => (
               <FormItem className="flex w-full flex-col gap-3">
-                  <FormLabel className="text-base-semibold text-light-2"> 
+                  <FormLabel className="text-base-semibold text-light-2">
                   </FormLabel>
                     <FormControl className="no-focus border-2 border-orange-500 bg-light-2 text-dark-1">
                                                   

@@ -17,20 +17,22 @@ const RightSideBar = async () => {
     userId: user.id,
     pageSize: 4
   })
+  
   const suggestedGroups = await fetchGroups( { pageSize: 4} )
 
   return (
     <>
     <section className="custom-scrollbar rightsidebar">
-      {/* <div className="flex flex-col justify-start">
+      <div className="flex flex-col justify-start">
           <h3 className="text-heading4-medium text-light-1">
             Suggestions
           </h3>
-      </div> */}
-      <div className="flex flex-col border border-dark-4 flex-1 justify-start rounded-lg">
+      </div>
+      {/* <div className="flex flex-col border border-dark-4 flex-1 justify-start rounded-lg">
           <h3 className="text-heading4-medium text-light-1">
             Users
           </h3>
+          
           <div className="mt-7 flex w-[350] flex-col gap-5">
             {
               similarMinds.users.length > 0 ? (
@@ -54,8 +56,8 @@ const RightSideBar = async () => {
               )
             }
           </div>
-      </div>
-      <div className="flex flex-col justify-start">
+      </div> */}
+      <div className="flex flex-col justify-start border border-dark-4 rpunded-lg">
           <h3 className="text-heading4-medium text-light-1">
             Groups
           </h3>
@@ -83,7 +85,7 @@ const RightSideBar = async () => {
             }
           </div>
       </div>
-      {/* <div className="flex flex-col flex-1 justify-start">
+      <div className="flex flex-col justify-start border border-dark-4 rounded-lg">
           <h3 className="text-heading4-medium text-light-1">
             Users
           </h3>
@@ -110,7 +112,7 @@ const RightSideBar = async () => {
               )
             }
           </div>
-      </div> */}
+      </div>
     </section>
     </>
   )

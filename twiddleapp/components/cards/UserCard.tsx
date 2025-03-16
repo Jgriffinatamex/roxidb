@@ -27,11 +27,11 @@ const UserCard = ({
       <article className="user-card">
         <div className="user-card_avatar">
           <Image 
-          src={ imgUrl }
-          alt="Logo"
-          width={32}
-          height={32}
-          className="rounded-lg"
+            src={ imgUrl }
+            alt="Logo"
+            width={32}
+            height={32}
+            className="rounded-lg"
           />
           <div className="flex-1 text-ellipsis">
             <h4 className="text-base-semibold text-gray-1">{name}</h4>
@@ -43,7 +43,8 @@ const UserCard = ({
 
         <Button className="user-card_btn" onClick={ () => {
           router.push(`/profile/${id}`)
-        }} >
+          }} 
+          >
           View
         </Button>
       </article>
